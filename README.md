@@ -27,8 +27,8 @@ Dropbox/dotfiles/
     └── env
 
 ~/
-├── .vimrc     -> ~/Dropbox/Home/vim/.vimrc
-├── .zshenv    -> ~/Dropbox/Home/zsh/.zshenv
-├── .ssh       -> ~/Dropbox/Home/ssh
-├── .gitconfig -> ~/Dropbox/Home/.gitconfig
+├── .vimrc     -> ~/Dropbox/dotfiles/vim/.vimrc
+├── .zshenv    -> ~/Dropbox/dotfiles/zsh/.zshenv
+├── .ssh       -> ~/Dropbox/dotfiles/ssh
+├── .gitconfig -> ~/Dropbox/dotfiles/.gitconfig
 ```

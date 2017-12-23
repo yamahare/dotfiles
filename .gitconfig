@@ -3,7 +3,7 @@
 	email = jidai.norio@gmail.com
 [core]
   editor = /usr/local/bin/vim
-  excludesfile = /Users/yamahare/Dropbox/Home/.gitignore_global
+	excludesfile = ~/Dropbox/dotfiles/.gitignore_global
 [color]
   ui = true
 [alias]
