@@ -1,0 +1,18 @@
+[user]
+	name = yamahare
+	email = jidai.norio@gmail.com
+[core]
+  editor = /usr/local/bin/vim
+  excludesfile = /Users/yamahare/Dropbox/Home/.gitignore_global
+[color]
+  ui = true
+[alias]
+  st  = status
+  cm  = commit
+  cmm = commit -m
+  co  = checkout
+  b   = branch
+  cb  = checkout -b
+  sm  = submodule
+  p   = push
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit

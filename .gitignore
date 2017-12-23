@@ -1,0 +1,10 @@
+#ignore_list
+.DS_Store
+ssh/
+.emacs.d/*
+vim/bundle/
+zsh/*
+#==========
+!.zshrc
+!.zshenv
+!init.el
