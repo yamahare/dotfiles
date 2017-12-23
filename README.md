@@ -3,12 +3,13 @@ This is my dotfiles.
 ## Filepath
 
 ```
-Dropbox/Home/
+Dropbox/dotfiles/
 ├── .emacs.d
 │   └── init.el
 ├── .git
 ├── .gitconfig
 ├── .gitignore
+├── .gitignore_global
 ├── ssh
 │   ├── config
 │   ├── github
