@@ -1,1 +1,1 @@
-export ZDOTDIR=$HOME/Dropbox/Home/zsh/
+export ZDOTDIR=$HOME/Dropbox/dotfiles/zsh/

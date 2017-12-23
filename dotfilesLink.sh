@@ -6,7 +6,7 @@ function makeSymLink() {
     fi
 }
 
-DROPBOX_DIR="$HOME/Dropbox/Home"
+DROPBOX_DIR="$HOME/Dropbox/dotfiles"
 
 makeSymLink $DROPBOX_DIR/vim/.vimrc  ~/.vimrc
 makeSymLink $DROPBOX_DIR/zsh/.zshenv ~/.zshenv

@@ -1,9 +1,9 @@
 if has('vim_starting')
   set nocompatible
-  set runtimepath+=~/Dropbox/Home/vim/bundle/neobundle.vim/
+  set runtimepath+=~/Dropbox/dotfiles/vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/Dropbox/Home/vim/bundle/'))
+call neobundle#begin(expand('~/Dropbox/dotfiles/vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
@@ -82,7 +82,7 @@ set smartindent
 "-----------
 " color
 "-----------
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 let g:solarized_degrade=0
 let g:solarized_bold=1
 let g:solarized_underline=1
