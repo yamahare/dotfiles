@@ -93,6 +93,7 @@ let g:solarized_visibility="high"
 colorscheme solarized
 syntax enable "カラー表示
 syntax on "コードの色分け
+set background=dark
 
 "-----------
 " search

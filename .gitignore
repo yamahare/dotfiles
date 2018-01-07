@@ -4,7 +4,9 @@ ssh/
 .emacs.d/*
 vim/bundle/
 zsh/*
+tmux/*
 #==========
 !.zshrc
 !.zshenv
 !init.el
+!.tmux.conf
