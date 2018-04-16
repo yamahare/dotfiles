@@ -9,7 +9,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
-NeoBundle 'scrooloose/nerdtree'
+" NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'slim-template/vim-slim.git'
 NeoBundle 'cohama/lexima.vim'
@@ -220,9 +220,9 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " smooth_scroll.vim
 "=============================
 " 隠しファイルをデフォルトで表示させる
-let NERDTreeShowHidden = 1
+" let NERDTreeShowHidden = 1
 " デフォルトでツリーを表示させる
-autocmd VimEnter * execute 'NERDTree'
+" autocmd VimEnter * execute 'NERDTree'
 "=============================
 " vim-json
 "=============================
