@@ -9,7 +9,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'ujihisa/unite-colorscheme'
-" NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'slim-template/vim-slim.git'
 NeoBundle 'cohama/lexima.vim'
@@ -18,6 +18,9 @@ NeoBundle 'tpope/vim-rails/'
 NeoBundle 'tomtom/tcomment_vim'     " gcc で現在行をコメントアウト。 選択してgcで複数行。
 NeoBundle 'Yggdroot/indentLine'   " これが原因でJSONのダブルクオーテーションが表示されない
 NeoBundle 'elzr/vim-json'         " 上のJSONの問題解決用シンタックス上書き
+NeoBundle 'simeji/winresizer'     " ウインドウサイズリサイズ
+NeoBundle 'szw/vim-tags'          " ctagを使えるようにする
+NeoBundle 'Shougo/neocomplcache'
 
 call neobundle#end()
 
@@ -128,6 +131,9 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
+" jjで挿入モードから抜ける設定
+inoremap <silent> jj <ESC>
+
 "=============================
 " powerline
 "=============================
@@ -220,10 +226,55 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 " smooth_scroll.vim
 "=============================
 " 隠しファイルをデフォルトで表示させる
-" let NERDTreeShowHidden = 1
+let NERDTreeShowHidden = 1
 " デフォルトでツリーを表示させる
-" autocmd VimEnter * execute 'NERDTree'
+autocmd VimEnter * execute 'NERDTree'
 "=============================
 " vim-json
 "=============================
 let g:vim_json_syntax_conceal = 0
+
+
+"=============================
+" ctag
+"=============================
+let g:vim_tags_auto_generate = 1
+let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R {OPTIONS} `bundle show --paths` 2>/dev/null"
+
+"=============================
+" neocomplcache"
+"=============================
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplcache.
+let g:neocomplcache_enable_at_startup = 1
+" Use smartcase.
+let g:neocomplcache_enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplcache_enable_camel_case_completion = 0
+
+" Define dictionary.
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : ''
+    \ }
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplcache#undo_completion()
+inoremap <expr><C-l>     neocomplcache#complete_common_string()
+
+" Recommended key-mappings.
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplcache#smart_close_popup() . "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplcache#close_popup()
+inoremap <expr><C-e>  neocomplcache#cancel_popup()

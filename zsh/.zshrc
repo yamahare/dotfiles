@@ -65,6 +65,9 @@ plugins=(
   colorize
   bundler
   rails
+  nvm
+  npm
+  tig
 )
 
 source $ZSH/oh-my-zsh.sh
