@@ -15,3 +15,4 @@ makeSymLink $DROPBOX_DIR/zsh/.zshenv ~/.zshenv
 makeSymLink $DROPBOX_DIR/ssh         ~/.ssh
 makeSymLink $DROPBOX_DIR/.gitconfig  ~/.gitconfig
 makeSymLink $DROPBOX_DIR/.gitignore_global ~/.gitignore_global
+makeSymLink $DROPBOX_DIR/nvim  ~/.config/nvim

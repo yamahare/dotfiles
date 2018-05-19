@@ -1,0 +1,23 @@
+# 特定のファイルタイプで読み込む
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = ['go']
+
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = ['md', 'markdown']
+
+# ES6のシンタックスハイライト
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript']
+
+# slimのシンタックスハイライト
+[[plugins]]
+repo = 'slim-template/vim-slim'
+on_ft = ['slim']
+
+# ruby閉じカッコ自動
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = ['ruby']
