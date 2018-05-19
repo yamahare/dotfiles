@@ -193,6 +193,12 @@ call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
     \ [ '.git/', '.ropeproject/', '__pycache__/',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 
+" プロンプトの左端に表示される文字を指定
+call denite#custom#option('default', 'prompt', '>')
+" deniteの起動位置をtopに変更
+call denite#custom#option('default', 'direction', 'top')
+
+
 "------------------
 " deoplete(昔のneocomplicache)
 "------------------

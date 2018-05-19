@@ -68,6 +68,7 @@ plugins=(
   nvm
   npm
   tig
+  tmux
 )
 
 source $ZSH/oh-my-zsh.sh
