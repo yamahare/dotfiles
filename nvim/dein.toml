@@ -67,3 +67,7 @@ repo = "tpope/vim-fugitive"
 # ターミナルをvimから
 [[plugins]]
 repo = "kassio/neoterm"
+
+# ウインドウのリサイズ
+[[plugins]]
+repo = 'simeji/winresizer'
