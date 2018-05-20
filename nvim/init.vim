@@ -60,6 +60,7 @@ set formatoptions=lmoq " 自動整形の実行方法
 set nobackup "バックアップは作成しない
 set noswapfile "スワップファイルを作成しない
 set autoread " Vimの外部で変更されたことが判明したとき、自動的に読み直す
+set splitright " 新しいウインドウを右に開く
 
 "-----------
 " View
@@ -332,7 +333,7 @@ nnoremap <silent> [fugitive]m :Gmerge<CR>
 "=============================
 tnoremap <silent> <ESC> <C-\><C-n>
 let g:neoterm_autoscroll=1 "REPLを自動的に改行
-let g:neoterm_default_mod='vertical'
+let g:neoterm_default_mod='vertical botright'
 " :Tnew 実行
 nnoremap <silent> <C-e><C-t> :Tnew<CR>
 
