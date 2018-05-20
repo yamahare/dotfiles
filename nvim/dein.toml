@@ -17,6 +17,13 @@ repo = 'Shougo/neomru.vim'
 on_if = 1
 on_source = ['unite.vim', 'denite.nvim']
 
+# ヤンクの履歴をdeniteで使うため
+[[plugins]]
+repo = 'Shougo/neoyank.vim'
+on_if = 1
+on_source = ['unite.vim', 'denite.nvim']
+
+
 # 昔のunite.vim
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -63,6 +70,10 @@ repo = 'szw/vim-tags'
 # gitをvimで
 [[plugins]]
 repo = "tpope/vim-fugitive"
+
+# ファイルの変更したところを表示
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
 
 # ターミナルをvimから
 [[plugins]]

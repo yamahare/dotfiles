@@ -159,7 +159,6 @@ inoremap <silent> jj <ESC>
 "------------------
 nmap [denite] <Nop>
 map <Space> [denite]
-
 " プロジェクト内のファイル検索
 nmap <silent> [denite]p :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
 " バッファに展開中のファイル検索
@@ -168,6 +167,36 @@ nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
 nmap <silent> [denite]o :<C-u>Denite outline -highlight-mode-insert=Search<CR>
 " 最近開いたファイル
 nmap <silent> [denite]f :<C-u>Denite file_mru -highlight-mode-insert=Search<CR>
+" 検索
+nmap <silent> [denite]s :<C-u>Denite grep -highlight-mode-insert=Search<CR>
+" ヤンク
+nmap <silent> [denite]y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
+
+" 検索をagにする
+call denite#custom#var('file_mru', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('buffer', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-color'])
+
+" 検索時に検索対象から指定のファイルを除外
+call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
+call denite#custom#source('buffer', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
+call denite#custom#source('file_mru', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
+call denite#custom#source('grep', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
+
+" 検索対象外のファイル指定
+call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+    \ [ '.git/', '.ropeproject/', '__pycache__/',
+    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
+    \   '*.cache', 'log/', 'tmp/', '*.log'])
+
+" プロンプトの左端に表示される文字を指定
+call denite#custom#option('default', 'prompt', '>')
+" deniteの起動位置をtopに変更
+" call denite#custom#option('default', 'direction', 'top')
 
 " 上下移動を<C-N>, <C-P>
 call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
@@ -184,21 +213,6 @@ call denite#custom#map('insert', '<C-I>', '<denite:do_action:vsplit>')
 " タブオープンを`<C-T>`
 call denite#custom#map('insert', '<C-T>', '<denite:do_action:tabopen>')
 
-" file_rec検索時にfuzzymatchを有効にし、検索対象から指定のファイルを除外
-call denite#custom#source(
-    \ 'file_rec', 'matchers', ['matcher_fuzzy', 'matcher_project_files', 'matcher_ignore_globs'])
-
-" 検索対象外のファイル指定
-call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-    \ [ '.git/', '.ropeproject/', '__pycache__/',
-    \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
-
-" プロンプトの左端に表示される文字を指定
-call denite#custom#option('default', 'prompt', '>')
-" deniteの起動位置をtopに変更
-call denite#custom#option('default', 'direction', 'top')
-
-
 "------------------
 " deoplete(昔のneocomplicache)
 "------------------
@@ -214,12 +228,36 @@ let g:deoplete#max_list = 10000
 inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "=============================
-" smooth_scroll.vim
+" NERDTree
 "=============================
 " 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
 " デフォルトでツリーを表示させる
 autocmd VimEnter * execute 'NERDTree'
+" デフォルトでbookmark表示
+let g:NERDTreeShowBookmarks=1
+
+" NERDTress File highlighting
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+call NERDTreeHighlightFile('py',     'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('md',     'blue',    'none', '#3366FF', '#151515')
+call NERDTreeHighlightFile('yml',    'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('config', 'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('conf',   'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('json',   'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('html',   'yellow',  'none', 'yellow',  '#151515')
+call NERDTreeHighlightFile('styl',   'cyan',    'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('css',    'cyan',    'none', 'cyan',    '#151515')
+call NERDTreeHighlightFile('rb',     'Red',     'none', 'red',     '#151515')
+call NERDTreeHighlightFile('js',     'Red',     'none', '#ffa500', '#151515')
+call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
+
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeDirArrowExpandable  = '▶'
+let g:NERDTreeDirArrowCollapsible = '▼'
 
 "=============================
 " accelerated-jk
@@ -240,8 +278,17 @@ nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
 
 "=============================
-" ターミナルモードを離脱するのをESCで
+" neoterm、ターミナルモードを離脱するのをESCで
 "=============================
 tnoremap <silent> <ESC> <C-\><C-n>
-nnoremap (keymapping) :T (command)<CR>
 let g:neoterm_autoscroll=1 "REPLを自動的に改行
+let g:neoterm_default_mod='vertical'
+" :Tnew 実行
+nnoremap <silent> <C-e><C-t> :Tnew<CR>
+
+"=============================
+" git-gutterプラグイン有効化
+"=============================
+set updatetime=250
+let g:gitgutter_override_sign_column_highlight = 0
+
