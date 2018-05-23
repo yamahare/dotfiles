@@ -11,6 +11,23 @@ build = 'make'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
+# vifm用
+# [[plugins]]
+# repo = 'vifm/neovim-vifm'
+
+# vimのファイラ
+# [[plugins]]
+# repo = 'cocopon/vaffle.vim'
+
+# 実質これしかnvimのファイラない
+# [[plugins]]
+# repo = 'Shougo/vimfiler.vim'
+# on_source = ['unite.vim']
+
+# vimfilerで必用になるため仕方ない
+# [[plugins]]
+# repo = 'Shougo/unite.vim'
+
 # 最近開いたファイルをdeniteで使うため
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -22,7 +39,6 @@ on_source = ['unite.vim', 'denite.nvim']
 repo = 'Shougo/neoyank.vim'
 on_if = 1
 on_source = ['unite.vim', 'denite.nvim']
-
 
 # 昔のunite.vim
 [[plugins]]

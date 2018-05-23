@@ -18,6 +18,7 @@ repo = 'slim-template/vim-slim'
 on_ft = ['slim']
 
 # ruby閉じカッコ自動
-[[plugins]]
-repo = 'tpope/vim-endwise'
-on_ft = ['ruby']
+# [[plugins]]
+# repo = 'tpope/vim-endwise'
+# on_ft = ['ruby']
+

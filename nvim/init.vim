@@ -61,6 +61,9 @@ set nobackup "バックアップは作成しない
 set noswapfile "スワップファイルを作成しない
 set autoread " Vimの外部で変更されたことが判明したとき、自動的に読み直す
 set splitright " 新しいウインドウを右に開く
+set spell "lang=en,cjk "スペルチェックする
+set modifiable " modifiableがオフなので変更できません　対策
+set write " modifiableがオフなので変更できません　対策
 
 "-----------
 " View
@@ -343,3 +346,23 @@ nnoremap <silent> <C-e><C-t> :Tnew<CR>
 set updatetime=250
 let g:gitgutter_override_sign_column_highlight = 0
 
+
+"=============================
+" vimfiller
+"=============================
+" call vimfiler#custom#profile('default', 'context', {
+"      \ 'safe' : 0,
+"      \ 'auto_expand' : 1,
+"      \ 'parent' : 0,
+"      \ })
+" let g:vimfiler_as_default_explorer = 1
+" let g:vimfiler_safe_mode_by_default = 0
+" " Textmate icons
+" let g:vimfiler_tree_leaf_icon = ' '
+" let g:vimfiler_tree_opened_icon = '▾'
+" let g:vimfiler_tree_closed_icon = '▸'
+" let g:vimfiler_file_icon = '-'
+" let g:vimfiler_marked_file_icon = '*'
+" " Nerdtree like
+" nnoremap <C-f> :<C-u>VimFilerBufferDir -split -winwidth=60 -toggle -no-quit<CR>
+" nnoremap <silent> fe :<C-u>VimFilerBufferDir -quit<CR>
