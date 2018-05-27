@@ -326,7 +326,7 @@ nmap k <Plug>(accelerated_jk_gk)
 "=============================
 nnoremap [fugitive]  <Nop>
 nmap <space>g [fugitive]
-nnoremap <silent> [fugitive]s :Gstatus<CR>
+nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
 nnoremap <silent> [fugitive]a :Gwrite<CR>
 nnoremap <silent> [fugitive]c :Gcommit-v<CR>
 nnoremap <silent> [fugitive]b :Gblame<CR>
