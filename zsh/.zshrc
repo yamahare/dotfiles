@@ -1,105 +1,97 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+#####################################################################
+# zplug
+#####################################################################
+# zplug settings
+# zmodload zsh/zprof && zprof #プロファイリング時にコメントアウトする
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
-# Path to your oh-my-zsh installation.
-export ZSH=~/Dropbox/dotfiles/zsh/.oh-my-zsh
+# --------------
+# plugins
+# --------------
+zplug "zsh-users/zsh-autosuggestions"              # fishみたいなサジェスト
+zplug "zsh-users/zsh-completions"                  # コマンドの補完
+zplug "zsh-users/zsh-syntax-highlighting", defer:2 # コマンドのハイライト
+zplug "zsh-users/zsh-history-substring-search"     # history
+zplug "chrissicool/zsh-256color"                   # 256color
+# ----テーマ-------
+zplug 'mafredri/zsh-async', from:github
+zplug 'sindresorhus/pure', use:pure.zsh, from:github, as:theme
+# zplug 'agnoster/agnoster-zsh-theme', as:theme
 
-# Set name of the theme to load. Optionally, if you set this to "random"
-# it'll load a random theme each time that oh-my-zsh is loaded.
-# See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="agnoster"
+# ------oh-my-zshのプラグイン------
+zplug "plugins/git", from:oh-my-zsh     # git alias
+zplug "plugins/tmux", from:oh-my-zsh    # git alias
+zplug "plugins/rbenv", from:oh-my-zsh   # git alias
+zplug "plugins/bundler", from:oh-my-zsh # git alias
+zplug "plugins/rails", from:oh-my-zsh   # git alias
+zplug "plugins/npm", from:oh-my-zsh     # git alias
+zplug "plugins/tig", from:oh-my-zsh     # git alias
+zplug "plugins/common-aliases", from:oh-my-zsh     # git alias
+# zplug "plugins/nvm", from:oh-my-zsh     # git alias
+# zplug "mafredri/zsh-async", from:github
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
-# Set list of themes to load
-# Setting this variable when ZSH_THEME=random
-# cause zsh load theme from this variable instead of
-# looking in ~/.oh-my-zsh/themes/
-# An empty array have no effect
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+# Then, source plugins and add commands to $PATH
+zplug load
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  zsh-autosuggestions
-  rbenv
-  colorize
-  bundler
-  rails
-  nvm
-  npm
-  tig
-  tmux
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
+# プロファイリング時にコメントアウトする
+# if (which zprof > /dev/null 2>&1) ;then
+#   zprof
 # fi
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
+#####################################################################
+# options
+#####################################################################
 
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
+setopt auto_list # 補完候補を一覧で表示する
+setopt auto_menu # 補完キー連打で候補順に自動で補完する
+# ビープを無効にする
+setopt no_beep
+setopt no_hist_beep
+setopt no_list_beep
+# history
+setopt share_history        # ヒストリの共有の有効化
+setopt hist_ignore_dups     # 直前と同じコマンドをヒストリに追加しない
+setopt hist_ignore_all_dups # ヒストリに追加されるコマンドが古いものと同じなら古いものを削除
+setopt hist_reduce_blanks   #コマンド中の余分なスペースは削除して履歴に記録する
+setopt inc_append_history   #  履歴をすぐに追加する（通常はシェル終了時）
+setopt prompt_subst # git情報表示用
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+#####################################################################
+# autoload
+######################################################################
+autoload -Uz add-zsh-hook   # フック機能を有効にする
+autoload -Uz compinit && compinit -u # コマンドのオプションや引数を補完する
+autoload -Uz url-quote-magic # URLをエスケープする
+autoload -Uz vcs_info # VCS情報の表示を有効にする
+autoload -U promptinit; promptinit # pureテーマ用
+
+#####################################################################
+# alias
+######################################################################
 alias vim='nvim'
 alias vi='nvim'
+
+#####################################################################
+# 環境変数
+#####################################################################
+export HISTFILE=~/Dropbox/dotfiles/zsh/.zsh_history
+export HISTSIZE=10000
+export SAVEHIST=10000
+
+# ls 時の色を設定する
+export CLICOLOR=true
+export LSCOLORS='exfxcxdxbxGxDxabagacad'
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+
+# 標準エディタを設定する
+export EDITOR=vim
