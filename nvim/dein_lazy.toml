@@ -17,6 +17,11 @@ on_ft = ['javascript']
 repo = 'slim-template/vim-slim'
 on_ft = ['slim']
 
+# slimのシンタックスハイライト
+[[plugins]]
+repo = 'posva/vim-vue'
+on_ft = ['vue']
+
 # ruby閉じカッコ自動
 # [[plugins]]
 # repo = 'tpope/vim-endwise'

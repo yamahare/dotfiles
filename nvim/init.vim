@@ -64,6 +64,8 @@ set splitright " 新しいウインドウを右に開く
 set spell "lang=en,cjk "スペルチェックする
 set modifiable " modifiableがオフなので変更できません　対策
 set write " modifiableがオフなので変更できません　対策
+set pumheight=10 " 補完メニューの高さ
+set mouse=a "マウスでスクロールとかできるやつ
 
 "-----------
 " View
@@ -346,6 +348,10 @@ nnoremap <silent> <C-e><C-t> :Tnew<CR>
 set updatetime=250
 let g:gitgutter_override_sign_column_highlight = 0
 
+"=============================
+" vim-vueプラグイン用
+"=============================
+autocmd FileType vue syntax sync fromstart
 
 "=============================
 " vimfiller
