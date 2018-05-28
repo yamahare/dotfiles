@@ -42,6 +42,7 @@ set formatoptions=lmoq " 自動整形の実行方法
 set nobackup "バックアップは作成しない
 set noswapfile "スワップファイルを作成しない
 set autoread " Vimの外部で変更されたことが判明したとき、自動的に読み直す
+set ambiwidth=double " □や○文字が崩れる問題を解決
 
 "-----------
 " View
