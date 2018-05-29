@@ -372,3 +372,40 @@ autocmd FileType vue syntax sync fromstart
 " " Nerdtree like
 " nnoremap <C-f> :<C-u>VimFilerBufferDir -split -winwidth=60 -toggle -no-quit<CR>
 " nnoremap <silent> fe :<C-u>VimFilerBufferDir -quit<CR>
+
+"=============================
+" syntastic
+"=============================
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
+  \ 'ruby', 'javascript','coffee', 'scss', 'html', 'haml', 'slim', 'sh',
+  \ 'spec', 'vim', 'zsh', 'sass', 'eruby'] }
+
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_coffee_checkers = ['coffeelint']
+let g:syntastic_scss_checkers = ['scss_lint']
+let g:syntastic_ruby_checkers = ['rubocop']
+
+let g:syntastic_error_symbol='✗'
+let g:syntastic_style_error_symbol = '✗'
+let g:syntastic_warning_symbol = '⚠'
+let g:syntastic_style_warning_symbol = '⚠'
+
+"=============================
+"
+" vim-airline
+"=============================
+let g:airline_powerline_fonts=1
+set laststatus=2
+" let g:airline_theme='solarized dark'
+let g:airline_theme='molokai'
+" let g:airline#extensions#tabline#enabled=1
+" let g:airline#extensions#tabline#buffer_idx_mode=1

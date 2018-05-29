@@ -59,8 +59,8 @@ repo = 'Yggdroot/indentLine'
 repo = 'bronson/vim-trailing-whitespace'
 
 # statusline
-[[plugins]]
-repo = 'itchyny/lightline.vim'
+# [[plugins]]
+# repo = 'itchyny/lightline.vim'
 
 # colorschema
 [[plugins]]
@@ -98,3 +98,19 @@ repo = "kassio/neoterm"
 # ウインドウのリサイズ
 [[plugins]]
 repo = 'simeji/winresizer'
+
+# シンタックスチェック
+[[plugins]]
+repo = 'vim-syntastic/syntastic'
+
+# ステータスバーをかっこよくする
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+# ステータスバーテーマ
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+# vimとtmuxのシームレス移動
+[[plugins]]
+repo = 'christoomey/vim-tmux-navigator'

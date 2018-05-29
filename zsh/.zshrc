@@ -28,7 +28,7 @@ zplug "plugins/rails", from:oh-my-zsh   # git alias
 zplug "plugins/npm", from:oh-my-zsh     # git alias
 zplug "plugins/tig", from:oh-my-zsh     # git alias
 zplug "plugins/common-aliases", from:oh-my-zsh     # git alias
-# zplug "plugins/nvm", from:oh-my-zsh     # git alias
+zplug "plugins/nvm", from:oh-my-zsh     # git alias
 # zplug "mafredri/zsh-async", from:github
 # zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
 
