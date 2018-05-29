@@ -18,7 +18,6 @@ zplug "chrissicool/zsh-256color"                   # 256color
 zplug 'mafredri/zsh-async', from:github
 zplug 'sindresorhus/pure', use:pure.zsh, from:github, as:theme
 # zplug 'agnoster/agnoster-zsh-theme', as:theme
-
 # ------oh-my-zshのプラグイン------
 zplug "plugins/git", from:oh-my-zsh     # git alias
 zplug "plugins/tmux", from:oh-my-zsh    # git alias
