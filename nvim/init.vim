@@ -160,6 +160,8 @@ nnoremap Q <Nop> "exモードになるのを防ぐ
 
 " jjで挿入モードから抜ける設定
 inoremap <silent> jj <ESC>
+" 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
+inoremap <silent> っｊ <ESC>
 
 "=============================
 " tab
