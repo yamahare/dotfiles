@@ -66,6 +66,7 @@ set modifiable " modifiableがオフなので変更できません　対策
 set write " modifiableがオフなので変更できません　対策
 set pumheight=10 " 補完メニューの高さ
 set mouse=a "マウスでスクロールとかできるやつ
+autocmd InsertLeave * set nopaste "ノーマルモードに戻る時、ペーストモードを解除
 
 "-----------
 " View
@@ -316,6 +317,11 @@ call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable  = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
+
+"横割り表示
+let g:NERDTreeMapOpenSplit = '<C-S>'
+"縦割り表示
+let g:NERDTreeMapOpenVSplit = '<C-I>'
 
 "=============================
 " accelerated-jk

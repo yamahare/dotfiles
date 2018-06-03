@@ -114,3 +114,7 @@ repo = 'vim-airline/vim-airline-themes'
 # vimとtmuxのシームレス移動
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
+
+# 囲み文字を変更
+[[plugins]]
+repo='tpope/vim-surround'

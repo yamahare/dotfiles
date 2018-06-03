@@ -22,11 +22,13 @@ on_ft = ['slim']
 repo = 'posva/vim-vue'
 on_ft = ['vue']
 
+# hamlのシンタックスハイライト
+[[plugins]]
+repo = 'tpope/vim-haml'
+on_ft = ['haml']
+
 # ruby閉じカッコ自動
 # [[plugins]]
 # repo = 'tpope/vim-endwise'
 # on_ft = ['ruby']
 
-[[plugins]]
-repo='tpope/vim-surround'
-on_i = 1
