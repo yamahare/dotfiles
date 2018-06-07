@@ -103,3 +103,6 @@ export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg
   fi
 }
 loadlib ~/Dropbox/dotfiles/zsh/env
+
+# ruby-gemのcapybara-webkitをインストールするときに必要になったqt
+export PATH="$(brew --prefix qt@5.5)/bin:$PATH

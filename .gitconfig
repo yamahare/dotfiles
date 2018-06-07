@@ -6,5 +6,5 @@
 	excludesfile = ~/.gitignore_global
 [color]
   ui = true
-[merge]
-	ff = false
+# [merge]
+# 	ff = false
