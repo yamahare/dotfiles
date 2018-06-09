@@ -10,7 +10,6 @@ DROPBOX_DIR="$HOME/Dropbox/dotfiles"
 
 makeSymLink $DROPBOX_DIR/tmux/.tmux.conf  ~/.tmux.conf
 makeSymLink $DROPBOX_DIR/tmux/.tmux  ~/.tmux
-makeSymLink $DROPBOX_DIR/vim/.vimrc  ~/.vimrc
 makeSymLink $DROPBOX_DIR/zsh/.zshenv ~/.zshenv
 makeSymLink $DROPBOX_DIR/ssh         ~/.ssh
 makeSymLink $DROPBOX_DIR/.gitconfig  ~/.gitconfig
