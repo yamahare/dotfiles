@@ -82,6 +82,7 @@ autoload -U promptinit; promptinit # pureテーマ用
 ######################################################################
 alias vim='nvim'
 alias vi='nvim'
+alias ripg='command rg' # rgがrails generateとかぶるため
 
 #####################################################################
 # 環境変数
@@ -106,3 +107,36 @@ loadlib ~/Dropbox/dotfiles/zsh/env
 
 # ruby-gemのcapybara-webkitをインストールするときに必要になったqt
 # export PATH="$(brew --prefix qt@5.5)/bin:$PATH
+
+#####################################################################
+# fzf設定
+#####################################################################
+# Setup fzf
+# ---------
+if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
+  export PATH="$PATH:/usr/local/opt/fzf/bin"
+fi
+# Auto-completion
+# ---------------
+[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+# Key bindings
+# ------------
+source "/usr/local/opt/fzf/shell/key-bindings.zsh"
+# ripgrepを使って検索する
+export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
+#----------------------
+# git branch切り替え
+#----------------------
+function git-branch-fzf() {
+  local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | perl -pne 's{^refs/heads/}{}' | fzf --query "$LBUFFER")
+
+  if [ -n "$selected_branch" ]; then
+    BUFFER="git checkout ${selected_branch}"
+    zle accept-line
+  fi
+
+  zle reset-prompt
+}
+zle -N git-branch-fzf
+bindkey "^b" git-branch-fzf
