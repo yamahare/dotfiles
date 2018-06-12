@@ -408,7 +408,6 @@ let g:syntastic_warning_symbol = '⚠'
 let g:syntastic_style_warning_symbol = '⚠'
 
 "=============================
-"
 " vim-airline
 "=============================
 let g:airline_powerline_fonts=1
@@ -417,3 +416,14 @@ set laststatus=2
 let g:airline_theme='molokai'
 " let g:airline#extensions#tabline#enabled=1
 " let g:airline#extensions#tabline#buffer_idx_mode=1
+
+
+"=============================
+" ctags
+" .gitディレクトリがある場合は、その配下に.tagsが作られる
+" TagsGenerate!で作成
+"=============================
+let g:vim_tags_main_file = '.tags'
+let g:vim_tags_auto_generate = 1
+let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
+let g:vim_tags_ignore_files = ['.gitignore', '.svnignore', '.cvsignore']
