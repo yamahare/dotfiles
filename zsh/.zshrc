@@ -82,7 +82,7 @@ autoload -U promptinit; promptinit # pureテーマ用
 ######################################################################
 alias vim='nvim'
 alias vi='nvim'
-alias ripg='command rg' # rgがrails generateとかぶるため
+alias ripg='command rg --hidden --follow --glob "!{.git, node_modules, vendor}/*"' # rgがrails generateとかぶるため
 
 #####################################################################
 # 環境変数
@@ -123,20 +123,22 @@ fi
 # ------------
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 # ripgrepを使って検索する
-export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --glob "!{.git, node_modules, vendor}/*"'
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
+# ctrl-tのときのデフォルトコマンド設定
+export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow --glob "!{.git, node_modules, vendor}/*"'
 #----------------------
 # git branch切り替え
 #----------------------
-function git-branch-fzf() {
-  local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | perl -pne 's{^refs/heads/}{}' | fzf --query "$LBUFFER")
-
-  if [ -n "$selected_branch" ]; then
-    BUFFER="git checkout ${selected_branch}"
-    zle accept-line
-  fi
-
-  zle reset-prompt
-}
-zle -N git-branch-fzf
-bindkey "^b" git-branch-fzf
+# function git-branch-fzf() {
+#   local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | perl -pne 's{^refs/heads/}{}' | fzf --query "$LBUFFER")
+#
+#   if [ -n "$selected_branch" ]; then
+#     BUFFER="git checkout ${selected_branch}"
+#     zle accept-line
+#   fi
+#
+#   zle reset-prompt
+# }
+# zle -N git-branch-fzf
+# bindkey "^b" git-branch-fzf
