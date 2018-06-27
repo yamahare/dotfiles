@@ -118,3 +118,7 @@ repo = 'vim-airline/vim-airline-themes'
 # 囲み文字を変更
 [[plugins]]
 repo='tpope/vim-surround'
+
+# pugのシンタックスハイライト
+[[plugins]]
+repo='digitaltoad/vim-pug'
