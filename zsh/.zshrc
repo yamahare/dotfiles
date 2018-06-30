@@ -38,7 +38,7 @@ autoload -U promptinit; promptinit # pureテーマ用
 ######################################################################
 alias vim='nvim'
 alias vi='nvim'
-alias ripg='command rg --hidden --follow -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"' # rgがrails generateとかぶるため
+alias ripg='command rg --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"' # rgがrails generateとかぶるため
 
 #####################################################################
 # 環境変数
@@ -79,7 +79,7 @@ fi
 # ------------
 source "/usr/local/opt/fzf/shell/key-bindings.zsh"
 # ripgrepを使って検索する
-export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
+export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
 # ctrl-tのときのデフォルトコマンド設定
-export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow  -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
+export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
