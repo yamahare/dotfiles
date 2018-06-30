@@ -123,7 +123,7 @@ let g:solarized_italic=1
 let g:solarized_termtrans=0
 let g:solarized_contrast="high"
 let g:solarized_visibility="high"
-hi Search cterm=NONE ctermfg=0 ctermbg=80
+hi Search term=underline cterm=underline ctermfg=80
 
 "-----------
 " search
@@ -235,8 +235,8 @@ nmap <silent> [denite]y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
 
 " 検索をripgrepにする
 if executable('rg')
-  call denite#custom#var('file_mru', 'command', ['rg'])
-  call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('file_mru', 'command', ['rg', '--hidden', '--follow'])
+  call denite#custom#var('file_rec', 'command', ['rg', '--files', '--hidden', '--follow', '--glob', '!.git'])
   call denite#custom#var('buffer', 'command', ['rg'])
   "-----------grep用-------------
   call denite#custom#var('grep', 'command', ['rg'])
