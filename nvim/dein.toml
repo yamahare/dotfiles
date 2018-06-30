@@ -55,8 +55,8 @@ repo = 'Shougo/deoplete.nvim'
 repo = 'Yggdroot/indentLine'
 
 # 無駄な空白をハイライト
-[[plugins]]
-repo = 'bronson/vim-trailing-whitespace'
+# [[plugins]]
+# repo = 'bronson/vim-trailing-whitespace'
 
 # statusline
 # [[plugins]]
@@ -73,7 +73,6 @@ repo = 'rhysd/accelerated-jk'
 # 閉じカッコ自動
 [[plugins]]
 repo = 'cohama/lexima.vim'
-
 
 # gcc で現在行をコメントアウト。 選択してgcで複数行。
 [[plugins]]

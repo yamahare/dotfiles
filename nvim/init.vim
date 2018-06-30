@@ -61,6 +61,7 @@ set nobackup "バックアップは作成しない
 set noswapfile "スワップファイルを作成しない
 set autoread " Vimの外部で変更されたことが判明したとき、自動的に読み直す
 set splitright " 新しいウインドウを右に開く
+set splitbelow " 新しいウインドウを右に開く
 set spell "lang=en,cjk "スペルチェックする
 set modifiable " modifiableがオフなので変更できません　対策
 set write " modifiableがオフなので変更できません　対策
@@ -150,6 +151,7 @@ inoremap <C-l> <Right>
 "------------------
 " KeyMap
 "------------------
+let mapleader = "\<Space>"
 ":と;でコマンドラインモード
 nnoremap ; :
 "分割ウインドウの移動
@@ -231,14 +233,20 @@ nmap <silent> [denite]s :<C-u>Denite grep -highlight-mode-insert=Search<CR>
 " ヤンク
 nmap <silent> [denite]y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
 
-" 検索をagにする
-call denite#custom#var('file_mru', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#var('file_rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#var('buffer', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'default_opts', ['--follow', '--no-group', '--no-color'])
+" 検索をripgrepにする
+if executable('rg')
+  call denite#custom#var('file_mru', 'command', ['rg'])
+  call denite#custom#var('file_rec', 'command', ['rg', '--files', '--glob', '!.git'])
+  call denite#custom#var('buffer', 'command', ['rg'])
+  "-----------grep用-------------
+  call denite#custom#var('grep', 'command', ['rg'])
+	call denite#custom#var('grep', 'default_opts',
+			\ ['--vimgrep', '--no-heading'])
+	call denite#custom#var('grep', 'recursive_opts', [])
+	call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
+	call denite#custom#var('grep', 'separator', ['--'])
+	call denite#custom#var('grep', 'final_opts', [])
+endif
 
 " 検索時に検索対象から指定のファイルを除外
 call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
@@ -250,7 +258,7 @@ call denite#custom#source('grep', 'matchers', ['matcher_fuzzy','matcher_cpsm','m
 call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
     \ [ '.git/', '.ropeproject/', '__pycache__/',
     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
-    \   '*.cache', 'log/', 'tmp/', '*.log'])
+    \   '*.cache', 'log/', 'tmp/', '*.log', 'node_modules/', 'import_data/'])
 
 " プロンプトの左端に表示される文字を指定
 call denite#custom#option('default', 'prompt', '>')
@@ -317,11 +325,15 @@ call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
 let g:NERDTreeDirArrows = 1
 let g:NERDTreeDirArrowExpandable  = '▶'
 let g:NERDTreeDirArrowCollapsible = '▼'
+" ignoreファイル
+let g:NERDTreeIgnore=['\.DS_Store$', '\.clean$', '\.swp$', '\.bak$', '\~$']
 
 "横割り表示
 let g:NERDTreeMapOpenSplit = '<C-S>'
 "縦割り表示
 let g:NERDTreeMapOpenVSplit = '<C-I>'
+" NERDツリーを表示させるショートカット
+nmap <silent> <Leader>n :NERDTreeToggle<CR>
 
 "=============================
 " accelerated-jk
@@ -369,15 +381,18 @@ autocmd FileType vue syntax sync fromstart
 "      \ 'auto_expand' : 1,
 "      \ 'parent' : 0,
 "      \ })
-" let g:vimfiler_as_default_explorer = 1
 " let g:vimfiler_safe_mode_by_default = 0
-" " Textmate icons
+" let g:vimfiler_as_default_explorer = 1
 " let g:vimfiler_tree_leaf_icon = ' '
 " let g:vimfiler_tree_opened_icon = '▾'
 " let g:vimfiler_tree_closed_icon = '▸'
 " let g:vimfiler_file_icon = '-'
 " let g:vimfiler_marked_file_icon = '*'
-" " Nerdtree like
+" let g:vimfiler_readonly_file_icon = '!'
+" let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$']
+" let g:vimfiler_enable_auto_cd = 1
+" Nerdtree like
+" nmap <silent> <Leader>f :VimFilerExplorer -winwidth=25 -split -no-quit -auto-cd<CR>
 " nnoremap <C-f> :<C-u>VimFilerBufferDir -split -winwidth=60 -toggle -no-quit<CR>
 " nnoremap <silent> fe :<C-u>VimFilerBufferDir -quit<CR>
 
@@ -416,6 +431,13 @@ set laststatus=2
 let g:airline_theme='molokai'
 " let g:airline#extensions#tabline#enabled=1
 " let g:airline#extensions#tabline#buffer_idx_mode=1
+" A領域に表示する項目
+let g:airline_section_a = airline#section#create(['mode'])
+" ステータスバーに表示するものをAとCのみにする
+let g:airline#extensions#default#layout = [
+	\ [ 'a', 'c'],
+	\ [],
+	\ ]
 
 
 "=============================
