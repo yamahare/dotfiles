@@ -1,52 +1,7 @@
 #####################################################################
-# zplug
-#####################################################################
-# zplug settings
-# zmodload zsh/zprof && zprof #プロファイリング時にコメントアウトする
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-# --------------
-# plugins
-# --------------
-zplug "zsh-users/zsh-autosuggestions"              # fishみたいなサジェスト
-zplug "zsh-users/zsh-completions"                  # コマンドの補完
-zplug "zsh-users/zsh-syntax-highlighting", defer:2 # コマンドのハイライト
-zplug "zsh-users/zsh-history-substring-search"     # history
-zplug "chrissicool/zsh-256color"                   # 256color
-# ----テーマ-------
-zplug 'mafredri/zsh-async', from:github
-zplug 'sindresorhus/pure', use:pure.zsh, from:github, as:theme
-# zplug 'agnoster/agnoster-zsh-theme', as:theme
-# ------oh-my-zshのプラグイン------
-zplug "plugins/git", from:oh-my-zsh     # git alias
-zplug "plugins/tmux", from:oh-my-zsh    # git alias
-zplug "plugins/rbenv", from:oh-my-zsh   # git alias
-zplug "plugins/bundler", from:oh-my-zsh # git alias
-zplug "plugins/rails", from:oh-my-zsh   # git alias
-zplug "plugins/npm", from:oh-my-zsh     # git alias
-zplug "plugins/tig", from:oh-my-zsh     # git alias
-zplug "plugins/common-aliases", from:oh-my-zsh     # git alias
-zplug "plugins/nvm", from:oh-my-zsh     # git alias
-# zplug "mafredri/zsh-async", from:github
-# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
-
-# Install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
-fi
-
-# Then, source plugins and add commands to $PATH
-zplug load
-
-# プロファイリング時にコメントアウトする
-# if (which zprof > /dev/null 2>&1) ;then
-#   zprof
-# fi
-
+# antigen
+######################################################################
+source ~/Dropbox/dotfiles/zsh/.zshrc.antigen
 #####################################################################
 # options
 #####################################################################
@@ -67,6 +22,7 @@ setopt hist_ignore_all_dups # ヒストリに追加されるコマンドが古�
 setopt hist_reduce_blanks   #コマンド中の余分なスペースは削除して履歴に記録する
 setopt inc_append_history   #  履歴をすぐに追加する（通常はシェル終了時）
 setopt prompt_subst # git情報表示用
+setopt HIST_IGNORE_ALL_DUPS #たぶんzcompdumpを出力させないようにする
 
 #####################################################################
 # autoload
@@ -127,18 +83,3 @@ export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow -g "!**/{node_m
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
 # ctrl-tのときのデフォルトコマンド設定
 export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow  -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
-#----------------------
-# git branch切り替え
-#----------------------
-# function git-branch-fzf() {
-#   local selected_branch=$(git for-each-ref --format='%(refname)' --sort=-committerdate refs/heads | perl -pne 's{^refs/heads/}{}' | fzf --query "$LBUFFER")
-#
-#   if [ -n "$selected_branch" ]; then
-#     BUFFER="git checkout ${selected_branch}"
-#     zle accept-line
-#   fi
-#
-#   zle reset-prompt
-# }
-# zle -N git-branch-fzf
-# bindkey "^b" git-branch-fzf
