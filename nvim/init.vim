@@ -335,6 +335,19 @@ let g:NERDTreeMapOpenVSplit = '<C-I>'
 " NERDツリーを表示させるショートカット
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "✹",
+    \ "Staged"    : "✚",
+    \ "Untracked" : "✭",
+    \ "Renamed"   : "➜",
+    \ "Unmerged"  : "═",
+    \ "Deleted"   : "✖",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✓",
+    \ 'Ignored'   : '-',
+    \ "Unknown"   : "?"
+    \ }
+
 "=============================
 " accelerated-jk
 "=============================
@@ -374,55 +387,6 @@ let g:gitgutter_override_sign_column_highlight = 0
 autocmd FileType vue syntax sync fromstart
 
 "=============================
-" vimfiller
-"=============================
-" call vimfiler#custom#profile('default', 'context', {
-"      \ 'safe' : 0,
-"      \ 'auto_expand' : 1,
-"      \ 'parent' : 0,
-"      \ })
-" let g:vimfiler_safe_mode_by_default = 0
-" let g:vimfiler_as_default_explorer = 1
-" let g:vimfiler_tree_leaf_icon = ' '
-" let g:vimfiler_tree_opened_icon = '▾'
-" let g:vimfiler_tree_closed_icon = '▸'
-" let g:vimfiler_file_icon = '-'
-" let g:vimfiler_marked_file_icon = '*'
-" let g:vimfiler_readonly_file_icon = '!'
-" let g:vimfiler_ignore_pattern = ['^\.git$', '^\.DS_Store$']
-" let g:vimfiler_enable_auto_cd = 1
-" Nerdtree like
-" nmap <silent> <Leader>f :VimFilerExplorer -winwidth=25 -split -no-quit -auto-cd<CR>
-" nnoremap <C-f> :<C-u>VimFilerBufferDir -split -winwidth=60 -toggle -no-quit<CR>
-" nnoremap <silent> fe :<C-u>VimFilerBufferDir -quit<CR>
-
-"=============================
-" syntastic
-"=============================
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 0
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [
-  \ 'ruby', 'javascript','coffee', 'scss', 'html', 'haml', 'slim', 'sh',
-  \ 'spec', 'vim', 'zsh', 'sass', 'eruby'] }
-
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_coffee_checkers = ['coffeelint']
-let g:syntastic_scss_checkers = ['scss_lint']
-let g:syntastic_ruby_checkers = ['rubocop']
-
-let g:syntastic_error_symbol='✗'
-let g:syntastic_style_error_symbol = '✗'
-let g:syntastic_warning_symbol = '⚠'
-let g:syntastic_style_warning_symbol = '⚠'
-
-"=============================
 " vim-airline
 "=============================
 let g:airline_powerline_fonts=1
@@ -456,3 +420,15 @@ let g:vim_tags_ignore_files = ['.gitignore', '.svnignore', '.cvsignore']
 " ハイライトするグループ名を設定します
 " アンダーラインで表示する
 let g:brightest#highlight = { "group" : "BrightestUnderline" }
+
+"=============================
+" ale
+"=============================
+" 保存時のみ実行する
+let g:ale_lint_on_text_changed = 0
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '--'
+let g:ale_set_highlights = 0 " ハイライトをやめる
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'

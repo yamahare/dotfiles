@@ -27,11 +27,6 @@ on_ft = ['vue']
 repo = 'tpope/vim-haml'
 on_ft = ['haml']
 
-# ruby閉じカッコ自動
-# [[plugins]]
-# repo = 'tpope/vim-endwise'
-# on_ft = ['ruby']
-
 # rubyのシンタックスハイライト
 [[plugins]]
 repo = 'vim-ruby/vim-ruby'

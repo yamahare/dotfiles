@@ -11,23 +11,6 @@ build = 'make'
 [[plugins]]
 repo = 'scrooloose/nerdtree'
 
-# vifm用
-# [[plugins]]
-# repo = 'vifm/neovim-vifm'
-
-# vimのファイラ
-# [[plugins]]
-# repo = 'cocopon/vaffle.vim'
-
-# 実質これしかnvimのファイラない
-# [[plugins]]
-# repo = 'Shougo/vimfiler.vim'
-# on_source = ['unite.vim']
-
-# vimfilerで必用になるため仕方ない
-# [[plugins]]
-# repo = 'Shougo/unite.vim'
-
 # 最近開いたファイルをdeniteで使うため
 [[plugins]]
 repo = 'Shougo/neomru.vim'
@@ -55,12 +38,8 @@ repo = 'Shougo/deoplete.nvim'
 repo = 'Yggdroot/indentLine'
 
 # 無駄な空白をハイライト
-# [[plugins]]
-# repo = 'bronson/vim-trailing-whitespace'
-
-# statusline
-# [[plugins]]
-# repo = 'itchyny/lightline.vim'
+[[plugins]]
+repo = 'bronson/vim-trailing-whitespace'
 
 # colorschema
 [[plugins]]
@@ -98,9 +77,9 @@ repo = "kassio/neoterm"
 [[plugins]]
 repo = 'simeji/winresizer'
 
-# シンタックスチェック
+# シンタックスチェック(非同期)
 [[plugins]]
-repo = 'vim-syntastic/syntastic'
+repo = 'w0rp/ale'
 
 # ステータスバーをかっこよくする
 [[plugins]]
@@ -109,10 +88,6 @@ repo = 'vim-airline/vim-airline'
 # ステータスバーテーマ
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-
-# vimとtmuxのシームレス移動
-# [[plugins]]
-# repo = 'christoomey/vim-tmux-navigator'
 
 # 囲み文字を変更
 [[plugins]]
@@ -125,3 +100,7 @@ repo='digitaltoad/vim-pug'
 # カーソル配下のワードをハイライトする
 [[plugins]]
 repo='osyo-manga/vim-brightest'
+
+# NERDTreeのgit表示
+[[plugins]]
+repo='Xuyuanp/nerdtree-git-plugin'
