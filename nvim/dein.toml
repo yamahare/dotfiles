@@ -121,3 +121,7 @@ repo='tpope/vim-surround'
 # pugのシンタックスハイライト
 [[plugins]]
 repo='digitaltoad/vim-pug'
+
+# カーソル配下のワードをハイライトする
+[[plugins]]
+repo='osyo-manga/vim-brightest'

@@ -449,3 +449,10 @@ let g:vim_tags_main_file = '.tags'
 let g:vim_tags_auto_generate = 1
 let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
 let g:vim_tags_ignore_files = ['.gitignore', '.svnignore', '.cvsignore']
+
+"=============================
+" brightest.vim
+"=============================
+" ハイライトするグループ名を設定します
+" アンダーラインで表示する
+let g:brightest#highlight = { "group" : "BrightestUnderline" }
