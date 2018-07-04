@@ -5,6 +5,7 @@ ssh/
 vim/bundle/
 zsh/*
 tmux/*
+nvim/plugged
 #==========
 !.zshrc
 !.zshenv
