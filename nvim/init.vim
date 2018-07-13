@@ -3,7 +3,7 @@
 " =========================
 call plug#begin()
 
-Plug 'Shougo/deoplete.nvim'             "コード補完
+Plug 'Valloric/YouCompleteMe'           "コード補完
 Plug 'scrooloose/nerdtree'              "ナードツリー
 Plug 'Yggdroot/indentLine'              "インデントを可視化
 Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
@@ -205,85 +205,6 @@ map <silent> [Tag]n :tabnext<CR>
 map <silent> [Tag]p :tabprevious<CR>
 " tp 前のタブ
 
-"------------------
-" Denite (昔のunite.vim)
-"------------------
-" nmap [denite] <Nop>
-" map <Space> [denite]
-" " プロジェクト内のファイル検索
-" nmap <silent> [denite]p :<C-u>Denite file_rec -highlight-mode-insert=Search<CR>
-" " バッファに展開中のファイル検索
-" nmap <silent> [denite]b :<C-u>Denite buffer -highlight-mode-insert=Search<CR>
-" " ファイル内の関数/クラス等の検索
-" nmap <silent> [denite]o :<C-u>Denite outline -highlight-mode-insert=Search<CR>
-" " 最近開いたファイル
-" nmap <silent> [denite]f :<C-u>Denite file_mru -highlight-mode-insert=Search<CR>
-" " 検索
-" nmap <silent> [denite]s :<C-u>Denite grep -highlight-mode-insert=Search<CR>
-" " ヤンク
-" nmap <silent> [denite]y :<C-u>Denite neoyank -highlight-mode-insert=Search<CR>
-"
-" " 検索をripgrepにする
-" if executable('rg')
-"   call denite#custom#var('file_mru', 'command', ['rg', '--hidden', '--follow'])
-"   call denite#custom#var('file_rec', 'command', ['rg', '--files', '--hidden', '--follow', '--glob', '!.git'])
-"   call denite#custom#var('buffer', 'command', ['rg'])
-"   "-----------grep用-------------
-"   call denite#custom#var('grep', 'command', ['rg'])
-" 	call denite#custom#var('grep', 'default_opts',
-" 			\ ['--vimgrep', '--no-heading'])
-" 	call denite#custom#var('grep', 'recursive_opts', [])
-" 	call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-" 	call denite#custom#var('grep', 'separator', ['--'])
-" 	call denite#custom#var('grep', 'final_opts', [])
-" endif
-"
-" " 検索時に検索対象から指定のファイルを除外
-" call denite#custom#source('file_rec', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
-" call denite#custom#source('buffer', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
-" call denite#custom#source('file_mru', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
-" call denite#custom#source('grep', 'matchers', ['matcher_fuzzy','matcher_cpsm','matcher_ignore_globs'])
-"
-" " 検索対象外のファイル指定
-" call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
-"     \ [ '.git/', '.ropeproject/', '__pycache__/',
-"     \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/',
-"     \   '*.cache', 'log/', 'tmp/', '*.log', 'node_modules/', 'import_data/'])
-"
-" " プロンプトの左端に表示される文字を指定
-" call denite#custom#option('default', 'prompt', '>')
-" " deniteの起動位置をtopに変更
-" " call denite#custom#option('default', 'direction', 'top')
-"
-" " 上下移動を<C-N>, <C-P>
-" call denite#custom#map('normal', '<C-N>', '<denite:move_to_next_line>')
-" call denite#custom#map('normal', '<C-P>', '<denite:move_to_previous_line>')
-" call denite#custom#map('insert', '<C-N>', '<denite:move_to_next_line>')
-" call denite#custom#map('insert', '<C-P>', '<denite:move_to_previous_line>')
-" " 入力履歴移動を<C-J>, <C-K>
-" call denite#custom#map('insert', '<C-J>', '<denite:assign_next_text>')
-" call denite#custom#map('insert', '<C-K>', '<denite:assign_previous_text>')
-" " 横割りオープンを`<C-S>`
-" call denite#custom#map('insert', '<C-S>', '<denite:do_action:split>')
-" " 縦割りオープンを`<C-I>`
-" call denite#custom#map('insert', '<C-I>', '<denite:do_action:vsplit>')
-" " タブオープンを`<C-T>`
-" call denite#custom#map('insert', '<C-T>', '<denite:do_action:tabopen>')
-
-"------------------
-" deoplete(昔のneocomplicache)
-"------------------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_camel_case = 0
-let g:deoplete#enable_ignore_case = 0
-let g:deoplete#enable_refresh_always = 0
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 10000
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 "=============================
 " NERDTree
 "=============================
@@ -445,3 +366,9 @@ nmap <Leader>gf :GFiles?<CR>
 nmap <Leader>c :Commits<CR>
 nmap <Leader>bc :BCommits<CR>
 nmap <Leader>s :Rg 
+
+
+"=============================
+" pythonを有効にする(YouCompleteMeのため)
+"=============================
+let g:python_host_prog='/usr/local/bin/python'
