@@ -39,6 +39,7 @@ autoload -U promptinit; promptinit # pureテーマ用
 alias vim='nvim'
 alias vi='nvim'
 alias ripg='command rg --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"' # rgがrails generateとかぶるため
+alias ggl='googler -n 7 -c ja -l ja --colors bjdxxy'
 
 #####################################################################
 # 環境変数
@@ -83,3 +84,8 @@ export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --no-messages -
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
 # ctrl-tのときのデフォルトコマンド設定
 export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
+
+#####################################################################
+# Pureのプロンプトを変更
+#####################################################################
+PURE_PROMPT_SYMBOL='ʕ ·ᴥ·ʔ'

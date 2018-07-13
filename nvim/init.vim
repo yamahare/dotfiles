@@ -439,7 +439,7 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 " ショートカット
-nmap <Leader>f :GFiles<CR>
+nmap <Leader>f :Files<CR>
 nmap <Leader>b :Buffers<CR>
 nmap <Leader>gf :GFiles?<CR>
 nmap <Leader>c :Commits<CR>
