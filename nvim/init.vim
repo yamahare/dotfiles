@@ -3,7 +3,13 @@
 " =========================
 call plug#begin()
 
-Plug 'Valloric/YouCompleteMe'           "コード補完
+" ------------コード補完-------------
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'     "非同期補完
+Plug 'prabirshrestha/asyncomplete-lsp.vim' "非同期補完
+Plug 'prabirshrestha/asyncomplete-file.vim' "fileパスの補完
+" ------------いろいろ---------------
 Plug 'scrooloose/nerdtree'              "ナードツリー
 Plug 'Yggdroot/indentLine'              "インデントを可視化
 Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
@@ -367,8 +373,48 @@ nmap <Leader>c :Commits<CR>
 nmap <Leader>bc :BCommits<CR>
 nmap <Leader>s :Rg 
 
+"=============================
+" pythonを有効にする
+"=============================
+" let g:python_host_prog='/usr/local/bin/python'
 
 "=============================
-" pythonを有効にする(YouCompleteMeのため)
+" 自動補完
 "=============================
-let g:python_host_prog='/usr/local/bin/python'
+" -----------python-----------
+if executable('pyls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'pyls',
+        \ 'cmd': {server_info->['pyls']},
+        \ 'whitelist': ['python'],
+        \ })
+endif
+
+" --------fileのpath-----------
+au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
+    \ 'name': 'file',
+    \ 'whitelist': ['*'],
+    \ 'priority': 10,
+    \ 'completor': function('asyncomplete#sources#file#completor')
+    \ }))
+
+" --------css-----------
+if executable('css-languageserver')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'css-languageserver',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
+        \ 'whitelist': ['css', 'less', 'sass'],
+        \ })
+endif
+
+let g:lsp_async_completion = 1
+let g:lsp_signs_enabled = 1         " enable signs
+let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
+" imap <c-space> <Plug>(asyncomplete_force_refresh)
+" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
