@@ -11,3 +11,5 @@ nvim/plugged
 !.zshenv
 !init.el
 !.tmux.conf
+#==========
+.tags

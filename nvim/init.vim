@@ -3,13 +3,12 @@
 " =========================
 call plug#begin()
 
-" ------------コード補完-------------
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/asyncomplete.vim'     "非同期補完
-Plug 'prabirshrestha/asyncomplete-lsp.vim' "非同期補完
-Plug 'prabirshrestha/asyncomplete-file.vim' "fileパスの補完
-" ------------いろいろ---------------
+" --- コード補完 -------
+Plug 'Shougo/deoplete.nvim'             "コード補完
+Plug 'roxma/nvim-yarp'                  "deopleteで使う
+Plug 'roxma/vim-hug-neovim-rpc'         "deopleteで使う
+Plug 'fishbullet/deoplete-ruby'         "ruby
+" --- その他いろいろ -------
 Plug 'scrooloose/nerdtree'              "ナードツリー
 Plug 'Yggdroot/indentLine'              "インデントを可視化
 Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
@@ -17,7 +16,7 @@ Plug 'altercation/vim-colors-solarized' "colorschema
 Plug 'rhysd/accelerated-jk'           "j, k移動高速化
 Plug 'cohama/lexima.vim'              "閉じカッコ自動
 Plug 'tomtom/tcomment_vim'            "gcc で現在行をコメントアウト。選択してgcで複数行。
-Plug 'szw/vim-tags'                   "ctag使えるようにする
+Plug 'ludovicchabant/vim-gutentags'     "ctagを自動生成
 Plug 'tpope/vim-fugitive'             "gitをvimで
 Plug 'airblade/vim-gitgutter'         "ファイルの変更したところを表示
 Plug 'simeji/winresizer'              "ウインドウのリサイズ
@@ -29,6 +28,7 @@ Plug 'osyo-manga/vim-brightest'    "カーソル配下のワードをハイラ�
 Plug 'Xuyuanp/nerdtree-git-plugin' "nerdtreeのプラグイン
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
+Plug 'majutsushi/tagbar'           " class outline viewer
 " --- シンタックスハイライト系 -------
 Plug 'rcmdnk/vim-markdown'
 Plug 'othree/yajs.vim'
@@ -194,22 +194,36 @@ let &tabline = '%!'. s:SID_PREFIX() . 'my_tabline()'
 set showtabline=2 " 常にタブラインを表示
 
 " The prefix key.
-nnoremap    [Tag]   <Nop>
-nmap    t [Tag]
+nnoremap    [Tab]   <Nop>
+nmap    t [Tab]
 " Tab jump
 for n in range(1, 9)
-  execute 'nnoremap <silent> [Tag]'.n  ':<C-u>tabnext'.n.'<CR>'
+  execute 'nnoremap <silent> [Tab]'.n  ':<C-u>tabnext'.n.'<CR>'
 endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
+map <silent> [Tab]c :tablast <bar> tabnew<CR>
 " tc 新しいタブを一番右に作る
-map <silent> [Tag]x :tabclose<CR>
+map <silent> [Tab]x :tabclose<CR>
 " tx タブを閉じる
-map <silent> [Tag]n :tabnext<CR>
+map <silent> [Tab]n :tabnext<CR>
 " tn 次のタブ
-map <silent> [Tag]p :tabprevious<CR>
+map <silent> [Tab]p :tabprevious<CR>
 " tp 前のタブ
+
+"------------------
+" deoplete(昔のneocomplicache)
+"------------------
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#enable_smart_case = 1
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10000
+inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "=============================
 " NERDTree
@@ -322,14 +336,9 @@ let g:airline#extensions#default#layout = [
 
 
 "=============================
-" ctags
-" .gitディレクトリがある場合は、その配下に.tagsが作られる
-" TagsGenerate!で作成
+" vim-gutentags
 "=============================
-let g:vim_tags_main_file = '.tags'
-let g:vim_tags_auto_generate = 1
-let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R {OPTIONS} {DIRECTORY} 2>/dev/null"
-let g:vim_tags_ignore_files = ['.gitignore', '.svnignore', '.cvsignore']
+let g:gutentags_ctags_tagfile='.tags'
 
 "=============================
 " brightest.vim
@@ -374,47 +383,6 @@ nmap <Leader>bc :BCommits<CR>
 nmap <Leader>s :Rg 
 
 "=============================
-" pythonを有効にする
+" tagbarのショートカット
 "=============================
-" let g:python_host_prog='/usr/local/bin/python'
-
-"=============================
-" 自動補完
-"=============================
-" -----------python-----------
-if executable('pyls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'pyls',
-        \ 'cmd': {server_info->['pyls']},
-        \ 'whitelist': ['python'],
-        \ })
-endif
-
-" --------fileのpath-----------
-au User asyncomplete_setup call asyncomplete#register_source(asyncomplete#sources#file#get_source_options({
-    \ 'name': 'file',
-    \ 'whitelist': ['*'],
-    \ 'priority': 10,
-    \ 'completor': function('asyncomplete#sources#file#completor')
-    \ }))
-
-" --------css-----------
-if executable('css-languageserver')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'css-languageserver',
-        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'css-languageserver --stdio']},
-        \ 'whitelist': ['css', 'less', 'sass'],
-        \ })
-endif
-
-let g:lsp_async_completion = 1
-let g:lsp_signs_enabled = 1         " enable signs
-let g:lsp_diagnostics_echo_cursor = 1 " enable echo under cursor when in normal mode
-
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<cr>"
-" imap <c-space> <Plug>(asyncomplete_force_refresh)
-" autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
-
-
+nmap <Leader>t :TagbarToggle<CR>
