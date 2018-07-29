@@ -30,6 +30,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin' "nerdtreeのプラグイン
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
 Plug 'majutsushi/tagbar'           " class outline viewer
+Plug 'mattn/emmet-vim'             " emmet
 " --- シンタックスハイライト系 -------
 Plug 'rcmdnk/vim-markdown'
 Plug 'othree/yajs.vim'
