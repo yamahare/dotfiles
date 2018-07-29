@@ -14,7 +14,8 @@ Plug 'Yggdroot/indentLine'              "インデントを可視化
 Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
 Plug 'altercation/vim-colors-solarized' "colorschema
 Plug 'rhysd/accelerated-jk'           "j, k移動高速化
-Plug 'cohama/lexima.vim'              "閉じカッコ自動
+Plug 'townk/vim-autoclose'            "閉じカッコ自動
+Plug 'tpope/vim-endwise'              "閉じカッコ自動RUBY
 Plug 'tomtom/tcomment_vim'            "gcc で現在行をコメントアウト。選択してgcで複数行。
 Plug 'ludovicchabant/vim-gutentags'     "ctagを自動生成
 Plug 'tpope/vim-fugitive'             "gitをvimで
@@ -243,7 +244,7 @@ let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#max_list = 10000
-inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "=============================
 " NERDTree
@@ -407,3 +408,8 @@ nmap <Leader>s :Rg
 "=============================
 nmap <Leader>t :TagbarToggle<CR>
 
+
+"=============================
+" vim-autoclose 下記にしていないとdeopleteでESC押したときノーマルモードにならない
+"=============================
+let g:AutoClosePumvisible = {"ENTER": "<C-Y>", "ESC": "<ESC>"}
