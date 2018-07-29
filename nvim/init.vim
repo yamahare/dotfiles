@@ -98,7 +98,7 @@ set softtabstop=2
 set noexpandtab
 set expandtab
 set smarttab
-set shiftwidth=2
+" set shiftwidth=2 #jsonnのときなんかずれるため削除
 set shiftround
 set nowrap
 set autoindent
@@ -386,3 +386,4 @@ nmap <Leader>s :Rg
 " tagbarのショートカット
 "=============================
 nmap <Leader>t :TagbarToggle<CR>
+
