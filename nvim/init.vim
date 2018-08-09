@@ -178,6 +178,8 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 nnoremap Q <Nop> "exモードになるのを防ぐ
 
+nnoremap <C-z> <Nop> "tmuxのprefixにしたから消す。（vimにおける一旦ポーズ）
+
 " jjで挿入モードから抜ける設定
 inoremap <silent> jj <ESC>
 " 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
