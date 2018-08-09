@@ -57,6 +57,7 @@ set formatoptions=lmoq " 自動整形の実行方法
 set nobackup "バックアップは作成しない
 set noswapfile "スワップファイルを作成しない
 set autoread " Vimの外部で変更されたことが判明したとき、自動的に読み直す
+au CursorHold * checktime " ノーマルモードで4秒間使用しないで1回チェックする autoread
 set splitright " 新しいウインドウを右に開く
 set splitbelow " 新しいウインドウを右に開く
 set spell "lang=en,cjk "スペルチェックする
@@ -285,6 +286,7 @@ let g:NERDTreeMapOpenSplit = '<C-S>'
 let g:NERDTreeMapOpenVSplit = '<C-I>'
 " NERDツリーを表示させるショートカット
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
+nmap <silent> <Leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeIndicatorMapCustom = {
     \ "Modified"  : "✹",
