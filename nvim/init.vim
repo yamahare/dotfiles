@@ -30,6 +30,8 @@ Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
 Plug 'majutsushi/tagbar'           " class outline viewer
 Plug 'mattn/emmet-vim'             " emmet
+Plug 'ryanoasis/vim-devicons'      " アイコン
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
 " --- シンタックスハイライト系 -------
 Plug 'rcmdnk/vim-markdown'
 Plug 'othree/yajs.vim'
@@ -45,6 +47,7 @@ call plug#end()
 " =========================
 " basic
 " =========================
+set encoding=UTF-8
 set formatoptions+=mM "整形オプションにマルチバイト追加
 set backspace=indent,eol,start "BSで何でも消せるようにする
 set viminfo=
@@ -259,26 +262,26 @@ autocmd VimEnter * execute 'NERDTree'
 let g:NERDTreeShowBookmarks=1
 
 " NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
-call NERDTreeHighlightFile('py',     'yellow',  'none', 'yellow',  '#151515')
-call NERDTreeHighlightFile('md',     'blue',    'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml',    'yellow',  'none', 'yellow',  '#151515')
-call NERDTreeHighlightFile('config', 'yellow',  'none', 'yellow',  '#151515')
-call NERDTreeHighlightFile('conf',   'yellow',  'none', 'yellow',  '#151515')
-call NERDTreeHighlightFile('json',   'yellow',  'none', 'yellow',  '#151515')
-call NERDTreeHighlightFile('html',   'yellow',  'none', 'yellow',  '#151515')
-call NERDTreeHighlightFile('styl',   'cyan',    'none', 'cyan',    '#151515')
-call NERDTreeHighlightFile('css',    'cyan',    'none', 'cyan',    '#151515')
-call NERDTreeHighlightFile('rb',     'Red',     'none', 'red',     '#151515')
-call NERDTreeHighlightFile('js',     'Red',     'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
+" function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+"  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+"  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+" endfunction
+" call NERDTreeHighlightFile('py',     'yellow',  'none', 'yellow',  '#151515')
+" call NERDTreeHighlightFile('md',     'blue',    'none', '#3366FF', '#151515')
+" call NERDTreeHighlightFile('yml',    'yellow',  'none', 'yellow',  '#151515')
+" call NERDTreeHighlightFile('config', 'yellow',  'none', 'yellow',  '#151515')
+" call NERDTreeHighlightFile('conf',   'yellow',  'none', 'yellow',  '#151515')
+" call NERDTreeHighlightFile('json',   'yellow',  'none', 'yellow',  '#151515')
+" call NERDTreeHighlightFile('html',   'yellow',  'none', 'yellow',  '#151515')
+" call NERDTreeHighlightFile('styl',   'cyan',    'none', 'cyan',    '#151515')
+" call NERDTreeHighlightFile('css',    'cyan',    'none', 'cyan',    '#151515')
+" call NERDTreeHighlightFile('rb',     'Red',     'none', 'red',     '#151515')
+" call NERDTreeHighlightFile('js',     'Red',     'none', '#ffa500', '#151515')
+" call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
 
-let g:NERDTreeDirArrows = 1
-let g:NERDTreeDirArrowExpandable  = '▶'
-let g:NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeDirArrows = 0
+" let g:NERDTreeDirArrowExpandable  = '▶'
+" let g:NERDTreeDirArrowCollapsible = '▼'
 " ignoreファイル
 let g:NERDTreeIgnore=['\.DS_Store$', '\.clean$', '\.swp$', '\.bak$', '\~$']
 
@@ -302,6 +305,20 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '-',
     \ "Unknown"   : "?"
     \ }
+"=============================
+" vim-nerdtree-syntax-highlight
+"=============================
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+
+"=============================
+"vim-devicons
+"=============================
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
 
 "=============================
 " accelerated-jk

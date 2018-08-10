@@ -12,8 +12,7 @@ setopt pushd_ignore_dups # 同じディレクトリを pushd しない
 setopt auto_list # 補完候補を一覧で表示する
 setopt auto_menu # 補完キー連打で候補順に自動で補完する
 # ビープを無効にする
-setopt no_beep
-setopt no_hist_beep
+setopt no_beep setopt no_hist_beep
 setopt no_list_beep
 # history
 setopt share_history        # ヒストリの共有の有効化
@@ -84,6 +83,15 @@ export FZF_DEFAULT_COMMAND='command rg --files --hidden --follow --no-messages -
 export FZF_DEFAULT_OPTS="--height 40% --reverse --border --inline-info --ansi"
 # ctrl-tのときのデフォルトコマンド設定
 export FZF_CTRL_T_COMMAND='command rg --files --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"'
+
+# fbr - checkout git branch (including remote branches), sorted by most recent commit, limit 30 last branches
+fgb() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" |
+           fzf-tmux -d $(( 2 + $(wc -l <<< "$branches") )) +m) &&
+  git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
+}
 
 #####################################################################
 # Pureのプロンプトを変更
