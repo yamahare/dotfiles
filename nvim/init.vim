@@ -11,7 +11,7 @@ Plug 'fishbullet/deoplete-ruby'         "ruby
 " --- git -------
 Plug 'tpope/vim-fugitive'             "gitをvimで
 Plug 'airblade/vim-gitgutter'         "ファイルの変更したところを表示
-Plug 'gregsexton/gitv'                "commit log viewer
+Plug 'cohama/agit.vim'                "gitvが重いのでこちら。git commit log
 " --- fzf -------
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
@@ -325,12 +325,10 @@ nnoremap <silent> [fugitive]d :Gdiff<CR>
 nnoremap <silent> [fugitive]m :Gmerge<CR>
 
 "=============================
-" gitv
+" Agit
 "=============================
-nnoremap <silent> <Space>gl :Gitv --all<CR>
-nnoremap <silent> <Space>gh :Gitv!<CR>
-
-autocmd FileType git :setlocal foldlevel=99
+nnoremap <silent> <Space>gl :Agit<CR>
+nnoremap <silent> <Space>gh :AgitFile<CR>
 
 "=============================
 " neoterm、ターミナルモードを離脱するのをESCで
