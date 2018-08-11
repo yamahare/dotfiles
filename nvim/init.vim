@@ -8,32 +8,38 @@ Plug 'Shougo/deoplete.nvim'             "コード補完
 Plug 'roxma/nvim-yarp'                  "deopleteで使う
 Plug 'roxma/vim-hug-neovim-rpc'         "deopleteで使う
 Plug 'fishbullet/deoplete-ruby'         "ruby
-" --- その他いろいろ -------
-Plug 'scrooloose/nerdtree'              "ナードツリー
-Plug 'Yggdroot/indentLine'              "インデントを可視化
-Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
-Plug 'altercation/vim-colors-solarized' "colorschema
-Plug 'rhysd/accelerated-jk'           "j, k移動高速化
-Plug 'cohama/lexima.vim'              "閉じカッコ自動
-Plug 'tomtom/tcomment_vim'            "gcc で現在行をコメントアウト。選択してgcで複数行。
-Plug 'ludovicchabant/vim-gutentags'     "ctagを自動生成
+" --- git -------
 Plug 'tpope/vim-fugitive'             "gitをvimで
 Plug 'airblade/vim-gitgutter'         "ファイルの変更したところを表示
-Plug 'simeji/winresizer'              "ウインドウのリサイズ
-Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
-Plug 'vim-airline/vim-airline'        "ステータスバーをかっこよくする
-Plug 'vim-airline/vim-airline-themes' "ステータスバーテーマ
-Plug 'tpope/vim-surround'          "囲み文字を変更
-Plug 'osyo-manga/vim-brightest'    "カーソル配下のワードをハイライトする
-Plug 'Xuyuanp/nerdtree-git-plugin' "nerdtreeのプラグイン
+" --- fzf -------
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
+" --- ctag -------
+Plug 'ludovicchabant/vim-gutentags'     "ctagを自動生成
 Plug 'majutsushi/tagbar'           " class outline viewer
+" --- 見た目 -------
+Plug 'altercation/vim-colors-solarized' "colorschema
+Plug 'vim-airline/vim-airline'        "ステータスバーをかっこよくする
+Plug 'vim-airline/vim-airline-themes' "ステータスバーテーマ
+" --- Util系 -------
+Plug 'luochen1990/rainbow'        " 閉じカッコをレインボーにするやつ
+Plug 'tomtom/tcomment_vim'            "gcc で現在行をコメントアウト。選択してgcで複数行。
+Plug 'Yggdroot/indentLine'              "インデントを可視化
+Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
+Plug 'simeji/winresizer'              "ウインドウのリサイズ
+Plug 'wesQ3/vim-windowswap'           " ウインドウをいい感じに移動できるやつ <leader>ww
+Plug 'rhysd/accelerated-jk'           "j, k移動高速化
+Plug 'osyo-manga/vim-brightest'    "カーソル配下のワードをハイライトする
+Plug 'cohama/lexima.vim'              "閉じカッコ自動
+Plug 'tpope/vim-surround'          "囲み文字を変更
 Plug 'mattn/emmet-vim'             " emmet
-Plug 'ryanoasis/vim-devicons'      " アイコン
+" --- ナードツリー -------
+Plug 'scrooloose/nerdtree'              "ナードツリー
+Plug 'Xuyuanp/nerdtree-git-plugin'      "nerdtreeのプラグイン
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
-Plug 'wesQ3/vim-windowswap' " ウインドウをいい感じに移動できるやつ
+Plug 'ryanoasis/vim-devicons'                  " アイコン
 " --- シンタックスハイライト系 -------
+Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
 Plug 'rcmdnk/vim-markdown'
 Plug 'othree/yajs.vim'
 Plug 'slim-template/vim-slim'
@@ -43,7 +49,6 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'digitaltoad/vim-pug'
 
 call plug#end()
-
 
 " =========================
 " basic
@@ -408,3 +413,7 @@ nmap <Leader>s :Rg
 "=============================
 nmap <Leader>t :TagbarToggle<CR>
 
+"=============================
+" rainbow
+"=============================
+let g:rainbow_active = 1
