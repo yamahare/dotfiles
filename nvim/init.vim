@@ -32,6 +32,7 @@ Plug 'majutsushi/tagbar'           " class outline viewer
 Plug 'mattn/emmet-vim'             " emmet
 Plug 'ryanoasis/vim-devicons'      " アイコン
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
+Plug 'wesQ3/vim-windowswap' " ウインドウをいい感じに移動できるやつ
 " --- シンタックスハイライト系 -------
 Plug 'rcmdnk/vim-markdown'
 Plug 'othree/yajs.vim'
