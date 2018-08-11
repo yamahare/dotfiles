@@ -261,27 +261,6 @@ autocmd VimEnter * execute 'NERDTree'
 " デフォルトでbookmark表示
 let g:NERDTreeShowBookmarks=1
 
-" NERDTress File highlighting
-" function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-"  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-"  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-" endfunction
-" call NERDTreeHighlightFile('py',     'yellow',  'none', 'yellow',  '#151515')
-" call NERDTreeHighlightFile('md',     'blue',    'none', '#3366FF', '#151515')
-" call NERDTreeHighlightFile('yml',    'yellow',  'none', 'yellow',  '#151515')
-" call NERDTreeHighlightFile('config', 'yellow',  'none', 'yellow',  '#151515')
-" call NERDTreeHighlightFile('conf',   'yellow',  'none', 'yellow',  '#151515')
-" call NERDTreeHighlightFile('json',   'yellow',  'none', 'yellow',  '#151515')
-" call NERDTreeHighlightFile('html',   'yellow',  'none', 'yellow',  '#151515')
-" call NERDTreeHighlightFile('styl',   'cyan',    'none', 'cyan',    '#151515')
-" call NERDTreeHighlightFile('css',    'cyan',    'none', 'cyan',    '#151515')
-" call NERDTreeHighlightFile('rb',     'Red',     'none', 'red',     '#151515')
-" call NERDTreeHighlightFile('js',     'Red',     'none', '#ffa500', '#151515')
-" call NERDTreeHighlightFile('php',    'Magenta', 'none', '#ff00ff', '#151515')
-
-let g:NERDTreeDirArrows = 0
-" let g:NERDTreeDirArrowExpandable  = '▶'
-" let g:NERDTreeDirArrowCollapsible = '▼'
 " ignoreファイル
 let g:NERDTreeIgnore=['\.DS_Store$', '\.clean$', '\.swp$', '\.bak$', '\~$']
 
@@ -293,32 +272,32 @@ let g:NERDTreeMapOpenVSplit = '<C-I>'
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>nf :NERDTreeFind<CR>
 
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹",
-    \ "Staged"    : "✚",
-    \ "Untracked" : "✭",
-    \ "Renamed"   : "➜",
-    \ "Unmerged"  : "═",
-    \ "Deleted"   : "✖",
-    \ "Dirty"     : "✗",
-    \ "Clean"     : "✓",
-    \ 'Ignored'   : '-',
-    \ "Unknown"   : "?"
-    \ }
 "=============================
 " vim-nerdtree-syntax-highlight
 "=============================
+" 速度低下を抑える
+let g:NERDTreeLimitedSyntax = 1
+" file
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
+" folder
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 "=============================
 "vim-devicons
 "=============================
+"deviconsをnerdtreeに適用
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
+"folderアイコンを使用
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFoldersOpenClose = 1
+"iconのwidth調整
+let g:WebDevIconsUnicodeDecorateFileNodes = 1
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 "=============================
 " accelerated-jk
