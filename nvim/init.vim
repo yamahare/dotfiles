@@ -421,6 +421,11 @@ nmap <Leader>s :Rg
 nmap <Leader>t :TagbarToggle<CR>
 
 "=============================
-" rainbow
+" rainbow  nerdtreeに影響与えないようにする
 "=============================
 let g:rainbow_active = 1
+let g:rainbow_conf = {
+\	'separately': {
+\		'nerdtree': 0,
+\	}
+\}
