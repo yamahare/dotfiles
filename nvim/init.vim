@@ -278,6 +278,8 @@ let g:NERDTreeMapOpenVSplit = '<C-I>'
 " NERDツリーを表示させるショートカット
 nmap <silent> <Leader>n :NERDTreeToggle<CR>
 nmap <silent> <Leader>nf :NERDTreeFind<CR>
+" bufferをデフォルトで削除にする
+let NERDTreeAutoDeleteBuffer = 1
 
 "=============================
 " vim-nerdtree-syntax-highlight
