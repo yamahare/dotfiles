@@ -85,23 +85,13 @@ set title "編集中のファイル名を表示
 set ruler  "ルーラー表示
 set number "行番号表示
 set showmatch "閉括弧が入力された時、対応する括弧を強調する
-"カーソル行をハイライト
-set cursorline
-" カレントウィンドウにのみ罫線を引く
-augroup cch
-  autocmd! cch
-  autocmd WinLeave * set nocursorline
-  autocmd WinEnter,BufRead * set cursorline
-augroup END
-
-hi clear CursorLine
-hi CursorLine gui = underline
-highlight CursorLine ctermbg = black guibg = black
-
-" コマンド実行中は再描画しない
-set lazyredraw
-" 高速ターミナル接続を行う
-set ttyfast
+" 下記はパフォーマンス向上の為解除
+set nocursorcolumn
+set nocursorline
+set norelativenumber
+syntax sync minlines=256
+set lazyredraw " コマンド実行中は再描画しない
+set ttyfast " 高速ターミナル接続を行う
 
 "-----------
 " tabIndent
