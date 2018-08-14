@@ -39,6 +39,7 @@ Plug 'scrooloose/nerdtree'              "ナードツリー
 Plug 'Xuyuanp/nerdtree-git-plugin'      "nerdtreeのプラグイン
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
 Plug 'ryanoasis/vim-devicons'                  " アイコン
+Plug 'jistr/vim-nerdtree-tabs'
 " --- シンタックスハイライト系 -------
 Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
 Plug 'rcmdnk/vim-markdown'
@@ -307,6 +308,13 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFileNodes = 1
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+
+"=============================
+"vim-nerdtree-tabs
+"=============================
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_focus_on_files=1
+let g:nerdtree_tabs_autofind=1
 
 "=============================
 " accelerated-jk
