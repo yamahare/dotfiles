@@ -341,15 +341,6 @@ nnoremap <silent> <Space>gl :Agit<CR>
 nnoremap <silent> <Space>gh :AgitFile<CR>
 
 "=============================
-" neoterm、ターミナルモードを離脱するのをESCで
-"=============================
-tnoremap <silent> <ESC> <C-\><C-n>
-let g:neoterm_autoscroll=1 "REPLを自動的に改行
-let g:neoterm_default_mod='vertical botright'
-" :Tnew 実行
-nnoremap <silent> <C-e><C-t> :Tnew<CR>
-
-"=============================
 " git-gutterプラグイン有効化
 "=============================
 set updatetime=250
