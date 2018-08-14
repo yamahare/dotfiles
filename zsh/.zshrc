@@ -12,7 +12,8 @@ setopt pushd_ignore_dups # 同じディレクトリを pushd しない
 setopt auto_list # 補完候補を一覧で表示する
 setopt auto_menu # 補完キー連打で候補順に自動で補完する
 # ビープを無効にする
-setopt no_beep setopt no_hist_beep
+setopt no_beep
+setopt no_hist_beep
 setopt no_list_beep
 # history
 setopt share_history        # ヒストリの共有の有効化
