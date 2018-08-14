@@ -16,7 +16,7 @@ Plug 'cohama/agit.vim'                "gitvが重いのでこちら。git commit
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
 " --- ctag -------
-Plug 'ludovicchabant/vim-gutentags'     "ctagを自動生成
+" Plug 'ludovicchabant/vim-gutentags'     "ctagを自動生成
 Plug 'majutsushi/tagbar'           " class outline viewer
 " --- 見た目 -------
 Plug 'altercation/vim-colors-solarized' "colorschema
@@ -372,7 +372,7 @@ let g:airline#extensions#default#layout = [
 "=============================
 " vim-gutentags
 "=============================
-let g:gutentags_ctags_tagfile='.tags'
+" let g:gutentags_ctags_tagfile='.tags'
 
 "=============================
 " brightest.vim
