@@ -1,3 +1,64 @@
+"        _
+" __   _(_)_ __ ___  _ __ ___
+" \ \ / / | '_ ` _ \| '__/ __|
+"  \ V /| | | | | | | | | (__
+"   \_/ |_|_| |_| |_|_|  \___|
+"
+" yamahare's .vimrc file
+"
+
+" ----------------------------------------------------------------------------
+" KEY MAPS
+" ----------------------------------------------------------------------------
+let mapleader = "\<Space>"
+
+nmap \F :NERDTreeFind<CR>
+nmap \e :NERDTreeToggle<CR>
+nmap \g :GitGutterToggle<CR>
+" fzf
+nmap <Leader>f :Files<CR>
+nmap <Leader>b :Buffers<CR>
+nmap <Leader>s :Rg 
+" tagbar
+nmap <Leader>t :TagbarToggle<CR>
+" accelerated-jk
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
+" fugitive
+nmap <Leader>gs :Gstatus<CR><C-w>T
+nmap <Leader>ga :Gwrite<CR>
+nmap <Leader>gc :Gcommit-v<CR>
+nmap <Leader>gb :Gblame<CR>
+nmap <Leader>gd :Gdiff<CR>
+nmap <Leader>gm :Gmerge<CR>
+" Agit
+nmap <Leader>gl :Agit<CR>
+nmap <Leader>gh :AgitFile<CR>
+
+" 検索結果のハイライトをEsc連打でクリアする
+nnoremap <ESC><ESC> :nohlsearch<CR>
+":と;でコマンドラインモード
+nnoremap ; :
+"分割ウインドウの移動
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap Q <Nop> "exモードになるのを防ぐ
+nnoremap <C-z> <Nop> "tmuxのprefixにしたから消す。（vimにおける一旦ポーズ）
+" jjで挿入モードから抜ける設定
+inoremap <silent> jj <ESC>
+" 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
+inoremap <silent> っｊ <ESC>
+" insert mode での移動
+inoremap  <C-e> <END>
+inoremap  <C-a> <HOME>
+" インサートモードでもhjklで移動（Ctrl押すけどね）
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
+
 " =========================
 " vim-plug
 " =========================
@@ -16,7 +77,6 @@ Plug 'cohama/agit.vim'                "gitvが重いのでこちら。git commit
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
 " --- ctag -------
-" Plug 'ludovicchabant/vim-gutentags'     "ctagを自動生成
 Plug 'majutsushi/tagbar'           " class outline viewer
 " --- 見た目 -------
 Plug 'altercation/vim-colors-solarized' "colorschema
@@ -30,7 +90,6 @@ Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
 Plug 'simeji/winresizer'              "ウインドウのリサイズ
 Plug 'wesQ3/vim-windowswap'           " ウインドウをいい感じに移動できるやつ <leader>ww
 Plug 'rhysd/accelerated-jk'           "j, k移動高速化
-Plug 'osyo-manga/vim-brightest'    "カーソル配下のワードをハイライトする
 Plug 'cohama/lexima.vim'              "閉じカッコ自動
 Plug 'tpope/vim-surround'          "囲み文字を変更
 Plug 'mattn/emmet-vim'             " emmet
@@ -39,7 +98,6 @@ Plug 'scrooloose/nerdtree'              "ナードツリー
 Plug 'Xuyuanp/nerdtree-git-plugin'      "nerdtreeのプラグイン
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
 Plug 'ryanoasis/vim-devicons'                  " アイコン
-Plug 'jistr/vim-nerdtree-tabs'
 " --- シンタックスハイライト系 -------
 Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
 Plug 'rcmdnk/vim-markdown'
@@ -151,40 +209,6 @@ set ignorecase "大文字/小文字の区別なく検索する
 set smartcase "検索文字列に大文字が含まれている場合は区別して検索する
 set wrapscan "検索時に最後まで行ったら最初に戻る
 set hlsearch   " 検索文字をハイライト
-" 検索結果のハイライトをEsc連打でクリアする
-nnoremap <ESC><ESC> :nohlsearch<CR>
-
-"------------------
-"   Move
-"------------------
-" insert mode での移動
-inoremap  <C-e> <END>
-inoremap  <C-a> <HOME>
-" インサートモードでもhjklで移動（Ctrl押すけどね）
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-h> <Left>
-inoremap <C-l> <Right>
-
-"------------------
-" KeyMap
-"------------------
-let mapleader = "\<Space>"
-":と;でコマンドラインモード
-nnoremap ; :
-"分割ウインドウの移動
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-nnoremap Q <Nop> "exモードになるのを防ぐ
-
-nnoremap <C-z> <Nop> "tmuxのprefixにしたから消す。（vimにおける一旦ポーズ）
-
-" jjで挿入モードから抜ける設定
-inoremap <silent> jj <ESC>
-" 日本語入力で”っj”と入力してもEnterキーで確定させればインサートモードを抜ける
-inoremap <silent> っｊ <ESC>
 
 "=============================
 " tab
@@ -258,17 +282,12 @@ let NERDTreeShowHidden = 1
 autocmd VimEnter * execute 'NERDTree'
 " デフォルトでbookmark表示
 let g:NERDTreeShowBookmarks=1
-
 " ignoreファイル
 let g:NERDTreeIgnore=['\.DS_Store$', '\.clean$', '\.swp$', '\.bak$', '\~$']
-
 "横割り表示
 let g:NERDTreeMapOpenSplit = '<C-S>'
 "縦割り表示
 let g:NERDTreeMapOpenVSplit = '<C-I>'
-" NERDツリーを表示させるショートカット
-nmap <silent> <Leader>n :NERDTreeToggle<CR>
-nmap <silent> <Leader>nf :NERDTreeFind<CR>
 " bufferをデフォルトで削除にする
 let NERDTreeAutoDeleteBuffer = 1
 
@@ -300,37 +319,6 @@ let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 "=============================
-"vim-nerdtree-tabs
-"=============================
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_focus_on_files=1
-let g:nerdtree_tabs_autofind=1
-
-"=============================
-" accelerated-jk
-"=============================
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
-
-"=============================
-" fugitive
-"=============================
-nnoremap [fugitive]  <Nop>
-nmap <space>g [fugitive]
-nnoremap <silent> [fugitive]s :Gstatus<CR><C-w>T
-nnoremap <silent> [fugitive]a :Gwrite<CR>
-nnoremap <silent> [fugitive]c :Gcommit-v<CR>
-nnoremap <silent> [fugitive]b :Gblame<CR>
-nnoremap <silent> [fugitive]d :Gdiff<CR>
-nnoremap <silent> [fugitive]m :Gmerge<CR>
-
-"=============================
-" Agit
-"=============================
-nnoremap <silent> <Space>gl :Agit<CR>
-nnoremap <silent> <Space>gh :AgitFile<CR>
-
-"=============================
 " git-gutterプラグイン有効化
 "=============================
 set updatetime=250
@@ -357,19 +345,6 @@ let g:airline#extensions#default#layout = [
 	\ [ 'a', 'c'],
 	\ [],
 	\ ]
-
-
-"=============================
-" vim-gutentags
-"=============================
-" let g:gutentags_ctags_tagfile='.tags'
-
-"=============================
-" brightest.vim
-"=============================
-" ハイライトするグループ名を設定します
-" アンダーラインで表示する
-let g:brightest#highlight = { "group" : "BrightestUnderline" }
 
 "=============================
 " ale
@@ -398,18 +373,6 @@ command! -bang -nargs=* Rg
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
-" ショートカット
-nmap <Leader>f :Files<CR>
-nmap <Leader>b :Buffers<CR>
-nmap <Leader>gf :GFiles?<CR>
-nmap <Leader>c :Commits<CR>
-nmap <Leader>bc :BCommits<CR>
-nmap <Leader>s :Rg 
-
-"=============================
-" tagbarのショートカット
-"=============================
-nmap <Leader>t :TagbarToggle<CR>
 
 "=============================
 " rainbow  nerdtreeに影響与えないようにする
