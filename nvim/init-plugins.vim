@@ -32,6 +32,7 @@ Plug 'rhysd/accelerated-jk'           "j, k移動高速化
 Plug 'cohama/lexima.vim'              "閉じカッコ自動
 Plug 'tpope/vim-surround'          "囲み文字を変更
 Plug 'mattn/emmet-vim'             " emmet
+Plug 'terryma/vim-multiple-cursors' "マルチ選択
 " --- dirvish(NERDTreeの代替) -------
 Plug 'justinmk/vim-dirvish'
 Plug 'kristijanhusak/vim-dirvish-git'
