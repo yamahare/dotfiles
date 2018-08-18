@@ -9,7 +9,8 @@ nmap \g :GitGutterToggle<CR>
 " fzf
 nmap <Leader>f :Files<CR>
 nmap <Leader>b :Buffers<CR>
-nmap <Leader>s :Rg 
+" nmap <Leader>s :Rg 
+nmap <Leader>s :Rg!<CR>
 " tagbar
 nmap <Leader>t :TagbarToggle<CR>
 " accelerated-jk
