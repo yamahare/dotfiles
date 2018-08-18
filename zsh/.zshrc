@@ -44,6 +44,8 @@ alias ggl='googler -n 7 -c ja -l ja --colors bjdxxy'
 #####################################################################
 # 環境変数
 #####################################################################
+export EDITOR=nvim
+
 export HISTFILE=~/Dropbox/dotfiles/zsh/.zsh_history
 export HISTSIZE=10000
 export SAVEHIST=10000
