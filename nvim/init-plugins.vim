@@ -33,9 +33,7 @@ Plug 'cohama/lexima.vim'              "閉じカッコ自動
 Plug 'tpope/vim-surround'          "囲み文字を変更
 Plug 'mattn/emmet-vim'             " emmet
 Plug 'terryma/vim-multiple-cursors' "マルチ選択
-" --- dirvish(NERDTreeの代替) -------
-Plug 'justinmk/vim-dirvish'
-Plug 'kristijanhusak/vim-dirvish-git'
+Plug 'ctrlpvim/ctrlp.vim'          "ファイル検索
 " --- ナードツリー -------
 Plug 'scrooloose/nerdtree'              "ナードツリー
 Plug 'Xuyuanp/nerdtree-git-plugin'      "nerdtreeのプラグイン
@@ -186,7 +184,27 @@ let g:indentLine_concealcursor = 'inc'
 let g:indentLine_conceallevel = 2
 let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 
-
 "=============================
-" vim-dirvish-git
+" ctrlpvim/ctrlp.vim'
 "=============================
+" キャッシュディレクトリ
+" F5 でキャッシュの更新ができる
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+" キャッシュを終了時に削除しない
+let g:ctrlp_clear_cache_on_exit = 0
+" 遅延再描画
+let g:ctrlp_lazy_update = 1
+" 無視するディレクトリ/ファイル
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn|node_modules|vendor|tmp|log)$',
+  \ 'file': '\v\.(exe|o)$',
+  \ 'link': 'some_bad_symbolic_links',
+  \ }
+if executable('rg')
+  let g:ctrlp_user_command = 'rg --files %s'
+  let g:ctrlp_use_caching = 0
+  let g:ctrlp_working_path_mode = 'ra'
+  let g:ctrlp_switch_buffer = 'et'
+endif
+" CtrlPのウィンドウ最大高さ
+let g:ctrlp_max_height = 20
