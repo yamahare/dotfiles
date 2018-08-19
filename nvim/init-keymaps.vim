@@ -50,13 +50,14 @@ inoremap <C-j> <Down>
 inoremap <C-k> <Up>
 inoremap <C-h> <Left>
 inoremap <C-l> <Right>
-" 保存
+" 保存,閉じる
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>q :q<CR>
 " vim設定をリフレッシュ
 nmap <leader>r :so ~/.config/nvim/init.vim<CR>
 " ペースト時に削除した文字列をヤンクさせない
 " delete without yanking
-nnoremap <leader>d "_d
-vnoremap <leader>d "_d
+" nnoremap <leader>d "_d
+" vnoremap <leader>d "_d
 " without yanking it
-vnoremap <leader>p "_dP
+" vnoremap <leader>p "_dP
