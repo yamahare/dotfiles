@@ -40,6 +40,10 @@ alias vim='nvim'
 alias vi='nvim'
 alias ripg='command rg --hidden --follow --no-messages -g "!**/{node_modules,public,bundles,.git,import_data,tmp}/**" -g "!*.log"' # rgがrails generateとかぶるため
 alias ggl='googler -n 7 -c ja -l ja --colors bjdxxy'
+alias cat='bat'
+alias ping='prettyping --nolegend'
+alias top="sudo htop"
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 
 #####################################################################
 # 環境変数
