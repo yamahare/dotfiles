@@ -71,6 +71,7 @@ loadlib ~/Dropbox/dotfiles/zsh/env
 # goのライブラリにパスを通す
 export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH
 
 # ruby-gemのcapybara-webkitをインストールするときに必要になったqt
 # export PATH="$(brew --prefix qt@5.5)/bin:$PATH
