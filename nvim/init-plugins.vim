@@ -37,7 +37,7 @@ Plug 'ctrlpvim/ctrlp.vim'          "ファイル検索
 " --- ナードツリー -------
 Plug 'scrooloose/nerdtree'              "ナードツリー
 Plug 'Xuyuanp/nerdtree-git-plugin'      "nerdtreeのプラグイン
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
 Plug 'ryanoasis/vim-devicons'                  " アイコン
 " --- シンタックスハイライト系 -------
 Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
@@ -87,14 +87,14 @@ let NERDTreeAutoDeleteBuffer = 1
 " vim-nerdtree-syntax-highlight
 "=============================
 " 速度低下を抑える
-let g:NERDTreeLimitedSyntax = 1
+" let g:NERDTreeLimitedSyntax = 1
 " file
-let g:NERDTreeFileExtensionHighlightFullName = 1
-let g:NERDTreeExactMatchHighlightFullName = 1
-let g:NERDTreePatternMatchHighlightFullName = 1
+" let g:NERDTreeFileExtensionHighlightFullName = 1
+" let g:NERDTreeExactMatchHighlightFullName = 1
+" let g:NERDTreePatternMatchHighlightFullName = 1
 " folder
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
+" let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+" let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 "=============================
 "vim-devicons
