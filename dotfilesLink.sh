@@ -16,3 +16,4 @@ makeSymLink $DROPBOX_DIR/.gitconfig  ~/.gitconfig
 makeSymLink $DROPBOX_DIR/.gitignore_global ~/.gitignore_global
 makeSymLink $DROPBOX_DIR/nvim  ~/.config/nvim
 makeSymLink $DROPBOX_DIR/tig/.tigrc ~/.tigrc
+makeSymLink $DROPBOX_DIR/intellij/.ideavimrc ~/.ideavimrc
