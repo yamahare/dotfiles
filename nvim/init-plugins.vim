@@ -19,8 +19,8 @@ Plug 'junegunn/fzf.vim'            " fzf
 Plug 'majutsushi/tagbar'           " class outline viewer
 " --- 見た目 -------
 Plug 'altercation/vim-colors-solarized' "colorschema
-Plug 'vim-airline/vim-airline'        "ステータスバーをかっこよくする
-Plug 'vim-airline/vim-airline-themes' "ステータスバーテーマ
+" Plug 'vim-airline/vim-airline'        "ステータスバーをかっこよくする
+" Plug 'vim-airline/vim-airline-themes' "ステータスバーテーマ
 " --- Util系 -------
 Plug 'luochen1990/rainbow'        " 閉じカッコをレインボーにするやつ
 Plug 'tomtom/tcomment_vim'            "gcc で現在行をコメントアウト。選択してgcで複数行。
@@ -36,9 +36,9 @@ Plug 'terryma/vim-multiple-cursors' "マルチ選択
 Plug 'ctrlpvim/ctrlp.vim'          "ファイル検索
 " --- ナードツリー -------
 Plug 'scrooloose/nerdtree'              "ナードツリー
-Plug 'Xuyuanp/nerdtree-git-plugin'      "nerdtreeのプラグイン
+" Plug 'Xuyuanp/nerdtree-git-plugin'      "nerdtreeのプラグイン
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
-Plug 'ryanoasis/vim-devicons'                  " アイコン
+" Plug 'ryanoasis/vim-devicons'                  " アイコン
 " --- シンタックスハイライト系 -------
 Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
 Plug 'rcmdnk/vim-markdown'
@@ -124,19 +124,19 @@ autocmd FileType vue syntax sync fromstart
 "=============================
 " vim-airline
 "=============================
-let g:airline_powerline_fonts=1
-set laststatus=2
+" let g:airline_powerline_fonts=1
+" set laststatus=2
 " let g:airline_theme='solarized dark'
-let g:airline_theme='molokai'
+" let g:airline_theme='molokai'
 " let g:airline#extensions#tabline#enabled=1
 " let g:airline#extensions#tabline#buffer_idx_mode=1
 " A領域に表示する項目
-let g:airline_section_a = airline#section#create(['mode'])
+" let g:airline_section_a = airline#section#create(['mode'])
 " ステータスバーに表示するものをAとCのみにする
-let g:airline#extensions#default#layout = [
-	\ [ 'a', 'c'],
-	\ [],
-	\ ]
+" let g:airline#extensions#default#layout = [
+" 	\ [ 'a', 'c'],
+" 	\ [],
+" 	\ ]
 
 "=============================
 " ale
