@@ -16,6 +16,7 @@ Plug 'cohama/agit.vim'                "gitvが重いのでこちら。git commit
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
 " --- ctag -------
+Plug 'szw/vim-tags'                " TagsGenerateでタグを生成
 Plug 'majutsushi/tagbar'           " class outline viewer
 " --- 見た目 -------
 Plug 'altercation/vim-colors-solarized' "colorschema

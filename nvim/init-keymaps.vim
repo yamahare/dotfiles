@@ -55,6 +55,8 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 " vim設定をリフレッシュ
 nmap <leader>r :so ~/.config/nvim/init.vim<CR>
+" tagsジャンプの時に複数ある時は一覧表示
+nnoremap <C-]> g<C-]>
 " ペースト時に削除した文字列をヤンクさせない
 " delete without yanking
 " nnoremap <leader>d "_d
