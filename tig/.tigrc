@@ -10,3 +10,7 @@ set diff-highlight = true
 # diff-view で境界が見やすくなるように変更
 color  diff-header       default magenta
 color  diff-chunk        black   white
+# diff表示が常に画面の右側に表示
+set vertical-split = yes
+# utf-8 文字で画面描画する (~でトグル)
+set line-graphics = utf-8
