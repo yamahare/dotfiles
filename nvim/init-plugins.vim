@@ -101,15 +101,15 @@ let NERDTreeAutoDeleteBuffer = 1
 "vim-devicons
 "=============================
 "deviconsをnerdtreeに適用
-let g:webdevicons_enable = 1
-let g:webdevicons_enable_nerdtree = 1
+" let g:webdevicons_enable = 1
+" let g:webdevicons_enable_nerdtree = 1
 "folderアイコンを使用
-let g:WebDevIconsUnicodeDecorateFolderNodes = 1
-let g:DevIconsEnableFoldersOpenClose = 1
+" let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+" let g:DevIconsEnableFoldersOpenClose = 1
 "iconのwidth調整
-let g:WebDevIconsUnicodeDecorateFileNodes = 1
-let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
-let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
+" let g:WebDevIconsUnicodeDecorateFileNodes = 1
+" let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 0
 
 "=============================
 " git-gutterプラグイン有効化

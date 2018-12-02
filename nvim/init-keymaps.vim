@@ -17,7 +17,7 @@ nmap <Leader>t :TagbarToggle<CR>
 nmap j <Plug>(accelerated_jk_gj)
 nmap k <Plug>(accelerated_jk_gk)
 " fugitive
-nmap <Leader>gs :Gstatus<CR><C-w>T
+nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>ga :Gwrite<CR>
 nmap <Leader>gc :Gcommit-v<CR>
 nmap <Leader>gb :Gblame<CR>
