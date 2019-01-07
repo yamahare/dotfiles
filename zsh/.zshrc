@@ -73,9 +73,8 @@ export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 
-# ruby-gemのcapybara-webkitをインストールするときに必要になったqt
-# export PATH="$(brew --prefix qt@5.5)/bin:$PATH
-
+# direnv(ディレクトリ毎に環境変数を設定できる)
+eval "$(direnv hook zsh)"
 #####################################################################
 # fzf設定
 #####################################################################
