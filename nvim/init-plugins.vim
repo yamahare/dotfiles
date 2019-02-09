@@ -41,12 +41,12 @@ Plug 'scrooloose/nerdtree'              "ナードツリー
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight' "NERDTreeシンタックスハイライト
 " Plug 'ryanoasis/vim-devicons'                  " アイコン
 " --- シンタックスハイライト系 -------
-Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
+" Plug 'w0rp/ale'                       "シンタックスチェック(非同期)
 Plug 'rcmdnk/vim-markdown'
 Plug 'othree/yajs.vim'
 Plug 'slim-template/vim-slim'
 Plug 'posva/vim-vue'
-Plug 'tpope/vim-haml'
+" Plug 'tpope/vim-haml'
 Plug 'vim-ruby/vim-ruby'
 Plug 'digitaltoad/vim-pug'
 

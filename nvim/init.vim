@@ -35,6 +35,7 @@ set write " modifiableがオフなので変更できません　対策
 set pumheight=10 " 補完メニューの高さ
 set mouse=a "マウスでスクロールとかできるやつ
 autocmd InsertLeave * set nopaste "ノーマルモードに戻る時、ペーストモードを解除
+autocmd FileType vue syntax sync fromstart "vueのハイライトが途中からきかなくなる問題を解消
 
 "-----------
 " View

@@ -23,3 +23,7 @@
 	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
 [init]
 	templatedir = ~/.git-templates/git-secrets
+[github]
+	user = yamahare
+[ghi]
+	token = !security find-internet-password -a yamahare -s github.com -l 'ghi token' -w
