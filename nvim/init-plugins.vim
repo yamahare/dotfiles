@@ -4,10 +4,10 @@
 call plug#begin()
 
 " --- コード補完 -------
-Plug 'Shougo/deoplete.nvim'             "コード補完
-Plug 'roxma/nvim-yarp'                  "deopleteで使う
-Plug 'roxma/vim-hug-neovim-rpc'         "deopleteで使う
-Plug 'fishbullet/deoplete-ruby'         "ruby
+" Plug 'Shougo/deoplete.nvim'             "コード補完
+" Plug 'roxma/nvim-yarp'                  "deopleteで使う
+" Plug 'roxma/vim-hug-neovim-rpc'         "deopleteで使う
+" Plug 'fishbullet/deoplete-ruby'         "ruby
 " --- git -------
 Plug 'tpope/vim-fugitive'             "gitをvimで
 Plug 'airblade/vim-gitgutter'         "ファイルの変更したところを表示
@@ -16,20 +16,20 @@ Plug 'cohama/agit.vim'                "gitvが重いのでこちら。git commit
 Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
 " --- ctag -------
-Plug 'szw/vim-tags'                " TagsGenerateでタグを生成
-Plug 'majutsushi/tagbar'           " class outline viewer
+" Plug 'szw/vim-tags'                " TagsGenerateでタグを生成
+" Plug 'majutsushi/tagbar'           " class outline viewer
 " --- 見た目 -------
 Plug 'altercation/vim-colors-solarized' "colorschema
 " Plug 'vim-airline/vim-airline'        "ステータスバーをかっこよくする
 " Plug 'vim-airline/vim-airline-themes' "ステータスバーテーマ
 " --- Util系 -------
-Plug 'luochen1990/rainbow'        " 閉じカッコをレインボーにするやつ
+" Plug 'luochen1990/rainbow'        " 閉じカッコをレインボーにするやつ
 Plug 'tomtom/tcomment_vim'            "gcc で現在行をコメントアウト。選択してgcで複数行。
 Plug 'Yggdroot/indentLine'              "インデントを可視化
 Plug 'bronson/vim-trailing-whitespace'  "無駄な空白をハイライト
 Plug 'simeji/winresizer'              "ウインドウのリサイズ
 Plug 'wesQ3/vim-windowswap'           " ウインドウをいい感じに移動できるやつ <leader>ww
-Plug 'rhysd/accelerated-jk'           "j, k移動高速化
+" Plug 'rhysd/accelerated-jk'           "j, k移動高速化
 Plug 'cohama/lexima.vim'              "閉じカッコ自動
 Plug 'tpope/vim-surround'          "囲み文字を変更
 Plug 'mattn/emmet-vim'             " emmet
@@ -55,15 +55,15 @@ call plug#end()
 "------------------
 " deoplete(昔のneocomplicache)
 "------------------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_camel_case = 0
-let g:deoplete#enable_ignore_case = 0
-let g:deoplete#enable_refresh_always = 0
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 10000
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#auto_complete_delay = 0
+" let g:deoplete#auto_complete_start_length = 1
+" let g:deoplete#enable_camel_case = 0
+" let g:deoplete#enable_ignore_case = 0
+" let g:deoplete#enable_refresh_always = 0
+" let g:deoplete#enable_smart_case = 1
+" let g:deoplete#file#enable_buffer_path = 1
+" let g:deoplete#max_list = 10000
 " inoremap <expr><tab> pumvisible() ? "\<C-n>" : "\<TAB>"
 
 "=============================

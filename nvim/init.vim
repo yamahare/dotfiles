@@ -52,6 +52,10 @@ syntax sync minlines=256
 set lazyredraw " コマンド実行中は再描画しない
 set ttyfast " 高速ターミナル接続を行う
 
+set synmaxcol=128
+syntax sync minlines=256
+let loaded_matchparen = 1
+
 "-----------
 " tabIndent
 "-----------

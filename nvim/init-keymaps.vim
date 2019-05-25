@@ -14,8 +14,8 @@ nmap <Leader>s :Rg
 " tagbar
 nmap <Leader>t :TagbarToggle<CR>
 " accelerated-jk
-nmap j <Plug>(accelerated_jk_gj)
-nmap k <Plug>(accelerated_jk_gk)
+" nmap j <Plug>(accelerated_jk_gj)
+" nmap k <Plug>(accelerated_jk_gk)
 " fugitive
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>ga :Gwrite<CR>
