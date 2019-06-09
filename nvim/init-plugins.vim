@@ -8,6 +8,7 @@ call plug#begin()
 " Plug 'roxma/nvim-yarp'                  "deopleteで使う
 " Plug 'roxma/vim-hug-neovim-rpc'         "deopleteで使う
 " Plug 'fishbullet/deoplete-ruby'         "ruby
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' } "deopleteの補完が遅いのでこちらにした
 " --- git -------
 Plug 'tpope/vim-fugitive'             "gitをvimで
 Plug 'airblade/vim-gitgutter'         "ファイルの変更したところを表示
@@ -209,3 +210,30 @@ if executable('rg')
 endif
 " CtrlPのウィンドウ最大高さ
 let g:ctrlp_max_height = 20
+
+
+"=============================
+" Valloric/YouCompleteMe
+"=============================
+" let g:ycm_global_ycm_extra_conf = '${HOME}/.ycm_extra_conf.py'
+let g:LanguageClient_serverCommands = { 'ruby': ['solargraph', 'stdio'] }
+let g:LanguageClient_autoStart=1
+let g:LanguageClient_autoStop=1
+let g:ycm_auto_trigger = 1
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+set splitbelow
+let g:ycm_semantic_triggers =  {
+  \   'c': ['->', '.'],
+  \   'objc': ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \            're!\[.*\]\s'],
+  \   'ocaml': ['.', '#'],
+  \   'cpp,cuda,objcpp': ['->', '.', '::'],
+  \   'perl': ['->'],
+  \   'php': ['->', '::'],
+  \   'cs,d,elixir,go,groovy,java,javascript,julia,perl6,python,scala,typescript,vb': ['.'],
+  \   'ruby,rust': ['.', '::'],
+  \   'lua': ['.', ':'],
+  \   'erlang': [':'],
+  \ }
