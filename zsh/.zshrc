@@ -72,9 +72,11 @@ loadlib ~/Dropbox/dotfiles/zsh/env
 export GOROOT=$HOME/go
 export PATH=$PATH:$GOROOT/bin
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+export PATH="$HOME/.nodenv/bin:$PATH"
 
 # direnv(ディレクトリ毎に環境変数を設定できる)
 eval "$(direnv hook zsh)"
+eval "$(nodenv init -)"
 #####################################################################
 # fzf設定
 #####################################################################

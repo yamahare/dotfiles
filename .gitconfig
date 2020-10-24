@@ -27,3 +27,8 @@
 	user = yamahare
 [ghi]
 	token = !security find-internet-password -a yamahare -s github.com -l 'ghi token' -w
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
