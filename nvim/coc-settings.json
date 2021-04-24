@@ -42,6 +42,10 @@
   "diagnostic.separateRelatedInformationAsDiagnostics": true,
   "suggest.timeout": 2000,
   "html.autoClosingTags": true,
+  "solargraph.diagnostics": true,
+  "solargraph.autoformat": true,
+  "solargraph.formatting": true,
+  "solargraph.hover": true,
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",
