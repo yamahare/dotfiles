@@ -1,5 +1,5 @@
 {
-"explorer.width": 30,
+  "explorer.width": 30,
   "explorer.file.showHiddenFiles": true,
   "explorer.file.autoReveal": false,
   "explorer.icon.enableNerdfont": true,
