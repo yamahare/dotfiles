@@ -13,6 +13,7 @@ source $VIM_CONF/init-keymaps.vim
 " =========================
 " basic
 " =========================
+set updatetime=300
 set encoding=UTF-8
 set formatoptions+=mM "整形オプションにマルチバイト追加
 set backspace=indent,eol,start "BSで何でも消せるようにする

@@ -3,19 +3,10 @@
 " ----------------------------------------------------------------------------
 let mapleader = "\<Space>"
 
-nmap \F :NERDTreeFind<CR>
-nmap \e :NERDTreeToggle<CR>
-nmap \g :GitGutterToggle<CR>
 " fzf
-nmap <Leader>f :Files<CR>
-nmap <Leader>b :Buffers<CR>
+nmap <Leader>f :CocCommand fzf-preview.FromResources project_mru git<CR>
+nmap <Leader>b :CocCommand fzf-preview.AllBuffers<CR>
 nmap <Leader>s :Rg 
-" nmap <Leader>s :Rg!<CR>
-" tagbar
-nmap <Leader>t :TagbarToggle<CR>
-" accelerated-jk
-" nmap j <Plug>(accelerated_jk_gj)
-" nmap k <Plug>(accelerated_jk_gk)
 " fugitive
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>ga :Gwrite<CR>
@@ -24,7 +15,6 @@ nmap <Leader>gb :Gblame<CR>
 nmap <Leader>gd :Gdiff<CR>
 nmap <Leader>gm :Gmerge<CR>
 " Agit
-nmap <Leader>gl :Agit<CR>
 nmap <Leader>gh :AgitFile<CR>
 
 " 検索結果のハイライトをEsc連打でクリアする
@@ -55,11 +45,19 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>q :q<CR>
 " vim設定をリフレッシュ
 nmap <leader>r :so ~/.config/nvim/init.vim<CR>
-" tagsジャンプの時に複数ある時は一覧表示
-nnoremap <C-]> g<C-]>
-" ペースト時に削除した文字列をヤンクさせない
-" delete without yanking
-" nnoremap <leader>d "_d
-" vnoremap <leader>d "_d
-" without yanking it
-" vnoremap <leader>p "_dP
+
+" coc
+"スペース2回でCocList
+nmap <silent> <space><space> :<C-u>CocList<cr>
+"スペースhでHover
+nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
+"スペースdfでDefinition
+nmap <silent> <space>df <Plug>(coc-definition)
+"スペースrfでReferences
+nmap <silent> <space>rf <Plug>(coc-references)
+"スペースrnでRename
+nmap <silent> <space>rn <Plug>(coc-rename)
+"スペースfmtでFormat
+nmap <silent> <space>fmt <Plug>(coc-format)
+"スペースeでファイラをひらく
+nnoremap <space>e :CocCommand explorer<CR>

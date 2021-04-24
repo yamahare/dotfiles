@@ -1,0 +1,52 @@
+{
+"explorer.width": 30,
+  "explorer.file.showHiddenFiles": true,
+  "explorer.file.autoReveal": false,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.buffer.root.template": "[icon & 1] OPEN EDITORS",
+  "explorer.file.root.template": "[icon & 1] [root]",
+  "explorer.icon.collapsed": "",
+  "explorer.icon.expanded": "ﱮ",
+  "codeLens.enable": true,
+  "coc.preferences.rootPatterns": [
+    ".git",
+    ".root",
+    ".env",
+    ".hg",
+    ".projections.json"
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.colorSupport": true,
+  "coc.source.around.firstMatch": false,
+  "coc.source.file.ignoreHidden": false,
+  "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 20,
+  "highlight.colors.enable": false,
+  "highlight.document.enable": true,
+  "git.realtimeGutters": true,
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "diagnostic.displayByAle": false,
+  "diagnostic.errorSign": "",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  "diagnostic.format": "%message",
+  "diagnostic.virtualText": false,
+  "diagnostic.checkCurrentLine": false,
+  "diagnostic.locationlistUpdate": false,
+  "diagnostic.messageDelay": 500,
+  "diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "suggest.timeout": 2000,
+  "html.autoClosingTags": true,
+  "languageserver": {
+    "dockerfile": {
+      "command": "docker-langserver",
+      "filetypes": ["dockerfile"],
+      "args": ["--stdio"]
+    }
+  }
+}
