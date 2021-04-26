@@ -37,6 +37,24 @@ let g:indentLine_bufNameExclude = ['_.*', 'NERD_tree.*']
 "=================================
 " coc
 "=================================
+let g:coc_global_extensions = [
+      \ 'coc-json',
+      \ 'coc-tabnine',
+      \ 'coc-prettier',
+      \ 'coc-pairs',
+      \ 'coc-html',
+      \ 'coc-highlight',
+      \ 'coc-git',
+      \ 'coc-fzf-preview',
+      \ 'coc-explorer',
+      \ 'coc-eslint',
+      \ 'coc-yaml',
+      \ 'coc-vimlsp',
+      \ 'coc-vetur',
+      \ 'coc-tsserver',
+      \ 'coc-solargraph',
+      \ 'coc-pyright',
+      \ 'coc-css']
 autocmd CursorHold * silent call CocActionAsync('highlight') "カーソル上の英語をハイライトさせる
 
 "=================================
