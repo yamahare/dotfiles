@@ -3,9 +3,11 @@
 " ----------------------------------------------------------------------------
 let mapleader = "\<Space>"
 
+nmap \F :NERDTreeFind<CR>
+nmap \e :NERDTreeToggle<CR>
 " fzf
-nmap <Leader>f :CocCommand fzf-preview.FromResources project_mru git<CR>
-nmap <Leader>b :CocCommand fzf-preview.AllBuffers<CR>
+nmap <Leader>f :Files<CR>
+nmap <Leader>b :Buffers<CR>
 nmap <Leader>s :Rg 
 " fugitive
 nmap <Leader>gs :Gstatus<CR>
