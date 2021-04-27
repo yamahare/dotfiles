@@ -38,6 +38,11 @@
   "solargraph.autoformat": true,
   "solargraph.formatting": true,
   "solargraph.hover": true,
+  "solargraph.transport": "external",
+  "solargraph.externalServer": {
+      "host": "localhost",
+      "port": 7658
+  },
   "languageserver": {
     "dockerfile": {
       "command": "docker-langserver",
