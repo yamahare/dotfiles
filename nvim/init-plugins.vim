@@ -103,6 +103,7 @@ let g:coc_global_extensions = [
       \ 'coc-vetur',
       \ 'coc-tsserver',
       \ 'coc-solargraph',
+      \ 'coc-spell-checker',
       \ 'coc-css']
 autocmd CursorHold * silent call CocActionAsync('highlight') "カーソル上の英語をハイライトさせる
 

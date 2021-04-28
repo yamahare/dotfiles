@@ -63,3 +63,8 @@ nmap <silent> <space>rn <Plug>(coc-rename)
 nmap <silent> <space>fmt <Plug>(coc-format)
 "スペースeでファイラをひらく
 nnoremap <space>e :CocCommand explorer<CR>
+
+" coc-spell
+nmap <leader>a <Plug>(coc-codeaction-selected)
+" <leader>aw for current word
+
