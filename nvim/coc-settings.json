@@ -43,13 +43,8 @@
       "host": "localhost",
       "port": 7658
   },
-  "languageserver": {
-    "dockerfile": {
-      "command": "docker-langserver",
-      "filetypes": ["dockerfile"],
-      "args": ["--stdio"]
-    }
-  },
+  "typescript.referencesCodeLens.enable": false,
+  "javascript.referencesCodeLens.enable": false,
   "cSpell.enabledLanguageIds": [
     "csharp",
     "go",
