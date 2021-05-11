@@ -13,7 +13,6 @@ Plug '/usr/local/opt/fzf'          " fzfで必要
 Plug 'junegunn/fzf.vim'            " fzf
 " --- 見た目 -------
 Plug 'altercation/vim-colors-solarized' "colorschema
-Plug 'itchyny/lightline.vim'
 " --- Util系 -------
 Plug 'tomtom/tcomment_vim'            "gcc で現在行をコメントアウト。選択してgcで複数行。
 Plug 'Yggdroot/indentLine'              "インデントを可視化
@@ -106,29 +105,3 @@ let g:coc_global_extensions = [
       \ 'coc-spell-checker',
       \ 'coc-css']
 autocmd CursorHold * silent call CocActionAsync('highlight') "カーソル上の英語をハイライトさせる
-
-"=================================
-" lightline
-"=================================
-" lightline
-let g:lightline = {
-  \ 'active': {
-  \   'left': [
-  \     [ 'mode', 'paste' ],
-  \     [ 'ctrlpmark', 'git', 'diagnostic', 'cocstatus', 'filename', 'method' ]
-  \   ],
-  \   'right':[
-  \     [ 'filetype', 'fileencoding', 'lineinfo', 'percent' ],
-  \     [ 'blame' ]
-  \   ],
-  \ },
-  \ 'component_function': {
-  \   'blame': 'LightlineGitBlame',
-  \ }
-\ }
-
-function! LightlineGitBlame() abort
-  let blame = get(b:, 'coc_git_blame', '')
-  " return blame
-  return winwidth(0) > 120 ? blame : ''
-endfunction
